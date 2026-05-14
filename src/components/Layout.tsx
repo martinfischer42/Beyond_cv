@@ -41,9 +41,27 @@ export default function Layout() {
       </main>
 
       <footer className="mt-10 border-t border-slate-200 bg-white">
-        <div className="mx-auto flex w-full max-w-content flex-col gap-3 px-5 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between md:px-8">
+        <div className="mx-auto flex w-full max-w-content flex-col gap-4 px-5 py-8 text-sm text-slate-500 md:px-8">
           <p className="font-medium text-slate-700">Martin Fischer · Beyond CV</p>
-          <p>Executive Marketing Leadership · AI Enablement · B2B Growth</p>
+          <p>Marketing Leadership für Wachstum, Effizienz und AI-gestützte Skalierung</p>
+
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link to="/kontakt" className="hover:text-slate-700 hover:underline">
+              Kontakt
+            </Link>
+            <a
+              href="https://www.linkedin.com/in/martin-fischer-299b19116"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-slate-700 hover:underline"
+            >
+              LinkedIn
+            </a>
+            <Link to="/impressum" className="hover:text-slate-700 hover:underline">
+              Impressum
+            </Link>
+          </div>
+
           <p>© {new Date().getFullYear()}</p>
         </div>
       </footer>
