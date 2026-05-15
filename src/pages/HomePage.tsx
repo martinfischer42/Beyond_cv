@@ -72,18 +72,20 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative min-h-[380px] lg:min-h-full">
-          <img
-            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80"
-            alt="Executive Meeting mit Fokus auf Strategie und Entscheidungsfindung"
-            className="h-full w-full object-cover"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-800/20 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-6 text-white md:p-8">
-            <p className="max-w-md text-base md:text-lg">
-              Fokus auf B2B-Positionierung, Marketing Operations und AI Enablement für nachhaltige Skalierung.
-            </p>
+        <div className="relative min-h-[380px] bg-slate-100 p-5 md:p-7 lg:min-h-full">
+          <div className="relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-[0_24px_60px_-28px_rgba(15,23,42,0.45)]">
+            <img
+              src="/images/portrait-hero.jpg"
+              alt="Professionelles Portrait von Martin Fischer"
+              className="h-full w-full object-cover object-center"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-slate-900/5 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white md:p-8">
+              <p className="max-w-md text-base md:text-lg">
+                Fokus auf B2B-Positionierung, Marketing Operations und AI Enablement für nachhaltige Skalierung.
+              </p>
+            </div>
           </div>
         </div>
       </div>
