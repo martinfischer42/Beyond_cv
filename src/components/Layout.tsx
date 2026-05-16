@@ -121,7 +121,7 @@ export default function Layout() {
       <footer className="mt-12 border-t border-slate-200 bg-white">
         <div className="mx-auto flex w-full max-w-content flex-col gap-4 px-5 py-10 text-sm text-slate-500 md:px-8">
           <p className="font-semibold text-slate-800">Martin Fischer · Executive Marketing Leadership</p>
-          <p>Marketing Leadership für Wachstum, Effizienz und AI-gestützte Skalierung.</p>
+          <p>Marketing-Teams entwickeln. Wachstum fördern. KI wirksam nutzen.</p>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link to="/kontakt" className="hover:text-slate-700 hover:underline">
