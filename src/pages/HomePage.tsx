@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const valuePillars = [
@@ -36,33 +35,23 @@ const impactCases = [
 ];
 
 export default function HomePage() {
-  const [heroImageError, setHeroImageError] = useState(false);
-
   return (
     <section className="space-y-16 pb-2 md:space-y-24">
       <div className="relative isolate min-h-[560px] overflow-hidden bg-[#07090D] md:min-h-[680px] md:h-[82vh]">
-        {!heroImageError && (
-          <img
-            src="/images/strategic_leadership_for_growth_and_impact.png"
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-            loading="eager"
-            onError={() => setHeroImageError(true)}
-          />
-        )}
+        <img
+          src="/images/hero.png"
+          alt=""
+          aria-hidden="true"
+          className="home-hero__image absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+        />
         <div className="absolute inset-0 bg-gradient-to-tr from-[#07090D]/95 via-[#07090D]/80 to-[#0B0F14]/35" />
-        <div className="absolute inset-0 bg-[#07090D]/35" />
 
         <div className="relative z-10 mx-auto flex h-full w-full max-w-[1400px] items-end px-5 pb-12 md:px-10 md:pb-16 lg:pb-20">
           <div className="max-w-[1100px] space-y-6">
-            <h1 className="text-white text-[clamp(3.1rem,7vw,7.2rem)] font-black leading-[0.98]">
-              Marketing leadership that turns complexity into growth.
+            <h1 className="text-white text-[clamp(1.8rem,3.6vw,3.4rem)] font-black leading-[1.05]">
+              Marketing-Führung, die Komplexität in Wachstum verwandelt.
             </h1>
-            <p className="text-base font-semibold uppercase tracking-[0.08em] text-white/90 md:text-lg">
-              B2B Marketing <span className="px-1.5 text-[#FF4A2D]">|</span> Positioning{' '}
-              <span className="px-1.5 text-[#FF4A2D]">|</span> AI Enablement{' '}
-              <span className="px-1.5 text-[#FF4A2D]">|</span> Growth
-            </p>
           </div>
         </div>
       </div>
