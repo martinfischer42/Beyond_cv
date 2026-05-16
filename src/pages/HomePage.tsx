@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const valuePillars = [
@@ -36,20 +35,16 @@ const impactCases = [
 ];
 
 export default function HomePage() {
-  const [heroImageError, setHeroImageError] = useState(false);
-
   return (
     <section className="space-y-16 pb-2 md:space-y-24">
       <div className="relative isolate min-h-[560px] overflow-hidden bg-[#07090D] md:min-h-[680px] md:h-[82vh]">
-        {!heroImageError && (
-          <img
-            src="/images/strategic_leadership_for_growth_and_impact.png"
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-            loading="eager"
-            onError={() => setHeroImageError(true)}
-          />
-        )}
+        <img
+          src="/images/hero.png"
+          alt=""
+          aria-hidden="true"
+          className="home-hero__image absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+        />
         <div className="absolute inset-0 bg-gradient-to-tr from-[#07090D]/95 via-[#07090D]/80 to-[#0B0F14]/35" />
         <div className="absolute inset-0 bg-[#07090D]/35" />
 
