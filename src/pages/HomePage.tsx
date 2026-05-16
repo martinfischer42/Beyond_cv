@@ -36,7 +36,7 @@ export default function HomePage() {
           <div className="mx-auto flex h-full w-full max-w-[1400px] items-end px-5 pb-10 md:px-10 md:pb-16 lg:pb-20">
             <div className="max-w-[900px]">
               <h1 className="text-[clamp(1.85rem,4.1vw,3.5rem)] font-black leading-[1.08] text-white">
-                Marketing Leadership für B2B-Wachstum, Effizienz und AI-gestützte Skalierung.
+               Marketing-Teams entwickeln. Wachstum fördern. KI wirksam nutzen.
               </h1>
             </div>
           </div>
