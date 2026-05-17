@@ -91,8 +91,8 @@ export default function HomePage() {
       <section className="mx-auto w-full max-w-content px-5 md:px-8">
         <div className="rounded-3xl border border-slate-200 bg-slate-900 px-6 py-8 text-white md:px-10 md:py-10">
           <p className="max-w-4xl text-lg leading-relaxed text-slate-100 md:text-2xl">
-            Ich bin offen für Rollen als Marketing Lead, Teamlead Marketing oder Head of Marketing — besonders in B2B
-            Software, Logistik und digitalen Services.
+            Ich bin offen für Rollen als Teamlead Marketing oder Head of Marketing — besonders in B2B
+            Software, Logistik und Defence.
           </p>
 
           <div className="mt-6">
