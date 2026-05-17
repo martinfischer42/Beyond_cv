@@ -9,7 +9,7 @@ const highlights = [
 const sections = [
   {
     title: 'Die Ausgangslage',
-    text: 'Sowohl das Team als auch das Budget wurden kontinuierlich reduziert. Unternehmerisch Entscheidungen haben ein aus Spezialisten bestehendes Team nahezu handlungsunfähig gemacht.',
+    text: 'Sowohl das Team als auch das Budget wurden kontinuierlich reduziert. Unternehmerische Entscheidungen haben ein aus Spezialisten bestehendes Team nahezu handlungsunfähig gemacht.',
   },
   {
     title: 'Strategischer Ansatz',
@@ -17,16 +17,17 @@ const sections = [
   },
   {
     title: 'Umsetzung',
-    text: 'Ich habe dafür gesorgt, dass neue Fähigkeiten hin zum Marketing-Generalist durch interne Wissensvermittlung und erweiteren Verantwortlichkeiten aufgebaut wurden. Die Einführung eines Kampagnenmanagements hat die thematische Steuerung stark erleichtert und gleichzeitig die Messung des Business Impacts erst möglich gemacht.
-    Einführung eines KPI-basierten Steuerungsmodells, Automatisierung repetitiver Aufgaben und KI-gestützte Workflows für Recherche, Content-Entwicklung, Qualitätssicherung und Kampagnenadaption haben weitere Kapazitätslücken gefüllt.',
+    text: `Ich habe dafür gesorgt, dass neue Fähigkeiten hin zum Marketing-Generalisten durch interne Wissensvermittlung und erweiterte Verantwortlichkeiten aufgebaut wurden. Die Einführung eines Kampagnenmanagements hat die thematische Steuerung stark erleichtert und gleichzeitig die Messung des Business Impacts erst möglich gemacht.
+
+Einführung eines KPI-basierten Steuerungsmodells, Automatisierung repetitiver Aufgaben und KI-gestützte Workflows für Recherche, Content-Entwicklung, Qualitätssicherung und Kampagnenadaption haben weitere Kapazitätslücken gefüllt.`,
   },
   {
-    title: 'Ergebnis,
+    title: 'Ergebnis',
     text: 'Höhere Konsistenz, Qualität und Output trotz kleinerer Teamgröße und reduziertem Budget. Das Marketing-Team etablierte sich als Vorreiter für AI-driven Arbeitsweisen in Non-Engineering-Bereichen. Heute unterstütze ich auch andere Teams in der KI-Transformation.',
   },
   {
     title: 'Relevanz für zukünftige Rollen',
-    text: 'Besonders relevant für Führungsrollen, die Wachstum unter Ressourcenrestriktionen ermöglichen und Marketing als strategische Transformationsfunktion aufstellen wollen. Ich habe die Fähigkeiten und den inneren Antrieb der zielgerichteten aber stetigen Veränderung und Weiterentwicklung sowohl von mir als auch des Teams. ',
+    text: 'Besonders relevant für Führungsrollen, die Wachstum unter Ressourcenrestriktionen ermöglichen und Marketing als strategische Transformationsfunktion aufstellen wollen. Ich habe die Fähigkeit und den inneren Antrieb, zielgerichtete, stetige Veränderung und Weiterentwicklung sowohl bei mir selbst als auch im Team voranzutreiben.',
   },
 ] as const;
 
@@ -62,7 +63,7 @@ export default function AiMarketingScalingCasePage() {
         {sections.map((section) => (
           <article key={section.title} className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
             <h2 className="text-2xl font-semibold text-slate-900">{section.title}</h2>
-            <p className="mt-3 text-slate-600">{section.text}</p>
+            <p className="mt-3 whitespace-pre-line text-slate-600">{section.text}</p>
           </article>
         ))}
       </div>
