@@ -45,8 +45,9 @@ export default function HomePage() {
 
       <section className="mx-auto w-full max-w-content px-5 py-2 md:px-8 md:py-4">
         <p className="max-w-4xl text-base leading-relaxed text-slate-700 md:text-xl">
-          Ich bin ein Senior Marketing Manager mit Führungserfahrung, der Marketing Teams gezielt weiterentwickelt. Aus Überzeugung führe ich situativ, empatisch und kollaborativ.
-          Dabei stehen sowohl Teamzusammenhalt als auch Teamleistung ganz oben auf der Zielhierarchie. Besonders in Transformationsphasen kann ich meine Stärken einsetzen.
+          Ich führe Ihr Marketing Team durch die KI-Transformation und bringe es so auf ganz neues Level - situativ, empatisch und kollaborativ.
+          Dabei stehen sowohl Teamzusammenhalt als auch Teamleistung ganz oben auf der Zielhierarchie.
+          Als Senior leite ich fachlich fundiert und stets mit dem Ziel, messbare Erfolge vorzuweisen. Mein innerer Antrieb: Lerne jeden Tag dazu und mache das Heute zu einem besseren Morgen.
         </p>
 
         <p className="mt-5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-600 md:text-sm">
