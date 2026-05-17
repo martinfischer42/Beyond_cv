@@ -45,8 +45,8 @@ export default function HomePage() {
 
       <section className="mx-auto w-full max-w-content px-5 py-2 md:px-8 md:py-4">
         <p className="max-w-4xl text-base leading-relaxed text-slate-700 md:text-xl">
-          Ich helfe Unternehmen, komplexe Produkte verständlich zu positionieren, Marketing-Teams leistungsfähiger zu
-          machen und Prozesse, Daten und Technologie so zu verbinden, dass messbarer Business Impact entsteht.
+          Ich bin ein Senior Marketing Manager mit Führungserfahrung, der Marketing Teams gezielt weiterentwickelt. Aus Überzeugung führe ich situativ, empatisch und kollaborativ.
+          Dabei stehen sowohl Teamzusammenhalt als auch Teamleistung ganz oben auf der Zielhierarchie. Besonders in Transformationsphasen kann ich meine Stärken einsetzen.
         </p>
 
         <p className="mt-5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-600 md:text-sm">
