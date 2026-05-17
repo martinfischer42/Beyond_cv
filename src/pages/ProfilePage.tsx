@@ -8,13 +8,13 @@ export default function ProfilePage() {
 
       <article className="space-y-4 rounded-2xl border border-slate-200 bg-white p-7 md:p-9">
         <p className="text-lg text-slate-700">
-          Marketing Leader mit Fokus auf B2B Growth, AI Enablement und nachhaltige operative Exzellenz. Ich verbinde
+          Marketing Leader mit Fokus auf Wachstum, AI Enablement und nachhaltige operative Exzellenz. Ich verbinde
           Leadership mit pragmatischer Umsetzung, um Teams, Technologie und Prozesse entlang klarer Business-Ziele
           auszurichten.
         </p>
         <p className="text-slate-600">
-          Mein Schwerpunkt liegt auf dem Aufbau leistungsfähiger Marketing-Organisationen, die datenbasiert arbeiten,
-          AI sinnvoll im Alltag einsetzen und ihre MarTech-Investitionen in messbare Wirkung übersetzen.
+          Mein Schwerpunkt liegt auf dem Aufbau leistungsfähiger Marketing-Organisationen, die datenbasiert entscheiden und handeln,
+          KI sinnvoll im Alltag einsetzen und ihre MarTech-Investitionen in messbare Wirkung übersetzen.
         </p>
       </article>
 
@@ -32,7 +32,7 @@ export default function ProfilePage() {
 
       <article className="space-y-3 rounded-2xl border border-slate-200 bg-white p-7 md:p-9">
         <h2 className="text-2xl font-semibold">Branchenfokus</h2>
-        <p className="text-slate-600">Software, Digital Services und Logistik.</p>
+        <p className="text-slate-600">Software, Logistik und Defence.</p>
       </article>
     </section>
   );
