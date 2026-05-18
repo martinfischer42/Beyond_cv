@@ -56,13 +56,6 @@ export default function HomePage() {
 
         <div className="mt-6 flex flex-wrap gap-3 md:gap-4">
           <Link
-            to="/profil"
-            className="rounded-md bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 md:text-base"
-          >
-            Lebenslauf ansehen
-          </Link>
-
-          <Link
             to="/kontakt"
             className="rounded-md bg-[#FF4A2D] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#E8452A] md:text-base"
           >

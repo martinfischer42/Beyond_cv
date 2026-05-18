@@ -3,14 +3,11 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const primaryNavItems = [
   { href: '/#about', label: 'About' },
-  { href: '/#impact', label: 'Impact' },
-  { href: '/#leadership', label: 'Leadership' },
   { href: '/cases', label: 'Cases' },
 ];
 
 const secondaryNavItems = [
   { to: '/', label: 'Start' },
-  { to: '/profil', label: 'Profil' },
   { to: '/cases', label: 'Cases' },
   { to: '/kontakt', label: 'Kontakt' },
   { to: '/impressum', label: 'Impressum' },
