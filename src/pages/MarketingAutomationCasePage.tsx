@@ -1,23 +1,23 @@
 import { Link } from 'react-router-dom';
 
-const highlights = ['85 % Plattformkostenreduktion', 'Automation-Architektur statt ad-hoc Versand', 'Verzahnung von Marketing Automation und CRM'] as const;
+const highlights = ['Steigerung der Leadgenerierung', 'Automation-Architektur', 'Fundiertes KPI Tracking'] as const;
 
 const sections = [
   {
-    title: 'Ausgangslage / Herausforderung',
-    text: 'E-Mail-Kommunikation war überwiegend ad-hoc organisiert. Fehlende Standards, intransparente KPIs und ein ineffizienter Plattform-Stack begrenzten Skalierung und Steuerbarkeit.',
+    title: 'Ausgangslage',
+    text: 'Die Verantwortlichen der Kanäle E-Mail, Website, Social Media & Event haben viele gute aber isolierte Einzelmaßnahmen umgesetzt. So konnten die Maßnahmen sich gegenseitig nicht stützen und die Messung der Zielerreichung (OKR) war unmöglich.',
   },
   {
     title: 'Strategischer Ansatz',
-    text: 'Entwicklung einer strukturierten Marketing-Automation-Architektur mit klaren Zielbildern, KPI-Definitionen und enger Integration in CRM- und Lead-Management-Prozesse.',
+    text: 'Ich habe eine Kampagnenplanung eingeführt. Die Kernfrage jeder Kampagne war: "Welcher Marketing-Mix kann das nächste gesteckte Ziel am wirkungsvollsten erreichen?" Die gemeinsame Planung, Ausgestaltung und Messung einer Kampagne sollte Erfolg oder Misserfolg steuerbar machen.',
   },
   {
-    title: 'Umsetzung / Hebel',
-    text: 'Konsolidierung der Tool-Landschaft, Aufbau von Awareness- und Lead-Nurturing-Strecken, Verbesserung von Datenqualität und Datenmodell sowie saubere Segmentierungslogik für zielgruppenorientierte Kampagnen.',
+    title: 'Umsetzung',
+    text: 'Aus neuen Objectives (OKR) habe ich Ziele für das Marketing-Team abgeleitet. In einer gemeinsamen Redaktionsplanung hat das Team den Marketing-Mix definiert und die relevanten KPIs abgestimmt. Die Messung der Kanal-Performance wurde auf eine Plattform gebracht. So war die Steuerung auf Kampagnenebene möglich. KI hat bei Planung, der Contenterstellung und der Messung eine zunehmend wichtig Rolle bekommen. Besonders bei der Content-Vorbereitung und in der Übernahme zeitaufwändiger, repetitiver Aufgaben war die KI wie ein eigenes Teammitglied. Auch die Datenanalyse wäre ohne KI so nicht möglich gewesen.',
   },
   {
-    title: 'Ergebnis / Business Impact',
-    text: 'Reduzierung der Plattformkosten um 85 % bei gleichzeitig höherer Prozessstabilität, konsistenter Kampagnenkommunikation und besserer Transparenz der Performance.',
+    title: 'Ergebnis',
+    text: 'Erstmalig gesteuerte Leadgenerierung mit kontinuierlicher Verbesserung. Es wurde möglich, themenspezifische Leadgenerierung zu betreiben und solide Zahlen auch für das Management zu liefern.',
   },
   {
     title: 'Relevanz für zukünftige Rollen',
@@ -31,10 +31,9 @@ export default function MarketingAutomationCasePage() {
       <div className="grid gap-8 overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5 p-7 md:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-700">Case 02</p>
-          <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">Marketing Automation & CRM-Verzahnung</h1>
+          <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">Kampagnenmanagement</h1>
           <p className="text-lg text-slate-600">
-            Architekturwechsel von manuell geprägten Einzelmaßnahmen hin zu einer steuerbaren,
-            KPI-basierten und wirtschaftlich deutlich effizienteren Marketing-Automation-Struktur.
+            Ganzheitliche Orchestrierung vormals losgelöster Marketing-Maßnahmen zu Erhöhung des Wirkungsgrades.
           </p>
           <ul className="space-y-2 text-sm font-medium text-slate-700">
             {highlights.map((item) => (
