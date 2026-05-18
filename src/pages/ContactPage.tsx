@@ -1,8 +1,11 @@
 export default function ContactPage() {
   return (
-    <section className="space-y-8">
-      <h1 className="text-3xl font-semibold">Kontakt</h1>
-      <article className="space-y-6 rounded-xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+    <section className="subpage-stack">
+      <div className="space-y-4">
+        <p className="kicker">Direkter Austausch</p>
+        <h1 className="text-3xl font-semibold md:text-5xl">Kontakt</h1>
+      </div>
+      <article className="surface-card space-y-6 p-8 md:p-10">
         <p className="text-slate-600">
           Ich freue mich auf den Austausch zu Marketing Leadership, AI Enablement, B2B Growth und
           Marketing-Tech-Transformation.
@@ -19,7 +22,7 @@ export default function ContactPage() {
             <span className="font-semibold">E-Mail:</span>{' '}
             <a
               href="mailto:martinfischer.jnb@gmail.com"
-              className="text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:text-accent-700"
+              className="link-inline"
             >
               martinfischer.jnb@gmail.com
             </a>
@@ -29,7 +32,7 @@ export default function ContactPage() {
             <span className="font-semibold">Telefon:</span>{' '}
             <a
               href="tel:+4917621636276"
-              className="text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:text-accent-700"
+              className="link-inline"
             >
               +49 176 21636276
             </a>
@@ -41,7 +44,7 @@ export default function ContactPage() {
               href="https://www.linkedin.com/in/martin-fischer-299b19116"
               target="_blank"
               rel="noreferrer"
-              className="text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:text-accent-700"
+              className="link-inline"
             >
               linkedin.com/in/martin-fischer-299b19116
             </a>

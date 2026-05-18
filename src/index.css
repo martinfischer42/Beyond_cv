@@ -24,3 +24,37 @@
     @apply leading-relaxed;
   }
 }
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-content px-5 py-10 md:px-8 md:py-14;
+  }
+
+  .subpage-stack {
+    @apply space-y-10 md:space-y-14;
+  }
+
+  .surface-card {
+    @apply rounded-3xl border border-slate-200/90 bg-white shadow-sm;
+  }
+
+  .section-card {
+    @apply rounded-2xl border border-slate-200/90 bg-white p-7 shadow-sm;
+  }
+
+  .kicker {
+    @apply text-sm font-semibold uppercase tracking-[0.14em] text-slate-500;
+  }
+
+  .cta-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-[#FF4A2D] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#E8452A] md:text-base;
+  }
+
+  .cta-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 md:text-base;
+  }
+
+  .link-inline {
+    @apply font-semibold text-slate-800 underline decoration-slate-300 underline-offset-4 transition hover:text-[#FF4A2D] hover:decoration-[#FF4A2D]/50;
+  }
+}

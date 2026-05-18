@@ -1,15 +1,18 @@
 export default function ImpressumPage() {
   return (
-    <section className="space-y-8">
-      <h1 className="text-3xl font-semibold">Impressum</h1>
-      <article className="space-y-4 rounded-xl bg-white p-8 text-slate-600 shadow-sm ring-1 ring-slate-200">
+    <section className="subpage-stack">
+      <div className="space-y-4">
+        <p className="kicker">Rechtliches</p>
+        <h1 className="text-3xl font-semibold md:text-5xl">Impressum</h1>
+      </div>
+      <article className="surface-card space-y-4 p-8 text-slate-600 md:p-10">
         <p className="text-slate-800">Martin Fischer</p>
         <p>München, Deutschland</p>
         <p>
           E-Mail:{' '}
           <a
             href="mailto:martinfischer.jnb@gmail.com"
-            className="text-accent-600 underline decoration-accent-300 underline-offset-4 transition hover:text-accent-700"
+            className="link-inline"
           >
             martinfischer.jnb@gmail.com
           </a>

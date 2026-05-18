@@ -27,10 +27,10 @@ const sections = [
 
 export default function MarketingAutomationCasePage() {
   return (
-    <section className="space-y-10 md:space-y-14">
-      <div className="grid gap-8 overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.2fr_1fr]">
+    <section className="subpage-stack">
+      <div className="surface-card grid gap-8 overflow-hidden lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5 p-7 md:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-700">Case 02</p>
+          <p className="kicker">Case 02</p>
           <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">Kampagnenmanagement</h1>
           <p className="text-lg text-slate-600">
             Ganzheitliche Orchestrierung vormals losgelöster Marketing-Maßnahmen zu Erhöhung des Wirkungsgrades.
@@ -54,7 +54,7 @@ export default function MarketingAutomationCasePage() {
 
       <div className="grid gap-5">
         {sections.map((section) => (
-          <article key={section.title} className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
+          <article key={section.title} className="section-card">
             <h2 className="text-2xl font-semibold text-slate-900">{section.title}</h2>
             <p className="mt-3 text-slate-600">{section.text}</p>
           </article>
@@ -64,10 +64,10 @@ export default function MarketingAutomationCasePage() {
       <div className="rounded-3xl border border-slate-200 bg-slate-900 p-7 text-white md:p-10">
         <h2 className="text-2xl font-semibold md:text-3xl">Von Prozessklarheit zu messbarer Wirkung.</h2>
         <div className="mt-6 flex flex-wrap gap-4">
-          <Link to="/cases/cms-migration" className="rounded-md bg-white px-5 py-3 font-semibold text-slate-900 hover:bg-slate-100">
+          <Link to="/cases/cms-migration" className="cta-secondary border-white/40 bg-white text-slate-900 hover:bg-slate-100">
             Nächster Case
           </Link>
-          <Link to="/kontakt" className="rounded-md border border-slate-300/40 px-5 py-3 font-semibold text-white hover:bg-white/10">
+          <Link to="/kontakt" className="cta-primary">
             Gespräch anfragen
           </Link>
         </div>
