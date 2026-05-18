@@ -7,14 +7,12 @@ import HomePage from './pages/HomePage';
 import ImpressumPage from './pages/ImpressumPage';
 import MarketingAutomationCasePage from './pages/MarketingAutomationCasePage';
 import AiMarketingScalingCasePage from './pages/AiMarketingScalingCasePage';
-import ProfilePage from './pages/ProfilePage';
 
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/profil" element={<ProfilePage />} />
         <Route path="/cases" element={<CasesOverviewPage />} />
         <Route path="/cases/ai-marketing-scaling" element={<AiMarketingScalingCasePage />} />
         <Route path="/cases/marketing-automation" element={<MarketingAutomationCasePage />} />
