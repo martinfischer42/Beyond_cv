@@ -57,7 +57,7 @@ export default function HomePage() {
         <div className="mt-6 flex flex-wrap gap-3 md:gap-4">
           <Link
             to="/kontakt"
-            className="rounded-md bg-[#FF4A2D] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#E8452A] md:text-base"
+            className="cta-primary"
           >
             Gespräch vereinbaren
           </Link>
@@ -66,7 +66,7 @@ export default function HomePage() {
             href="https://www.linkedin.com/in/martin-fischer-299b19116"
             target="_blank"
             rel="noreferrer"
-            className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 md:text-base"
+            className="cta-secondary"
           >
             LinkedIn
           </a>
@@ -92,7 +92,7 @@ export default function HomePage() {
           <div className="mt-6">
             <Link
               to="/kontakt"
-              className="inline-flex rounded-md bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 md:text-base"
+              className="cta-secondary bg-white text-slate-900 hover:bg-slate-100"
             >
               Kontakt aufnehmen
             </Link>

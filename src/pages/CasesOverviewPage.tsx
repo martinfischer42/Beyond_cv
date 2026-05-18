@@ -41,10 +41,10 @@ const cases = [
 
 export default function CasesOverviewPage() {
   return (
-    <section className="space-y-14 md:space-y-20">
-      <div className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-7 md:p-10 lg:grid-cols-[1.2fr_1fr]">
+    <section className="subpage-stack">
+      <div className="surface-card grid gap-6 p-7 md:p-10 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-700">Executive Portfolio</p>
+          <p className="kicker">Executive Portfolio</p>
           <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">Cases mit Business Impact</h1>
           <p className="max-w-2xl text-lg text-slate-600">
             Drei Transformations-Cases als belastbare Wirkungsnachweise für strategische Marketingführung,
@@ -63,13 +63,13 @@ export default function CasesOverviewPage() {
 
       <div className="grid gap-6 lg:grid-cols-3">
         {cases.map((item) => (
-          <article key={item.to} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+          <article key={item.to} className="surface-card overflow-hidden">
             <div className="relative h-44 bg-slate-200">
               <img src={item.visual.src} alt={item.visual.alt} className="h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-slate-900/15 to-transparent" />
             </div>
             <div className="space-y-4 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Business-Impact-Case</p>
+              <p className="kicker text-xs">Business-Impact-Case</p>
               <h2 className="text-2xl font-semibold text-slate-900">{item.title}</h2>
               <p className="text-slate-600">{item.impact}</p>
               <ul className="space-y-2 text-sm font-medium text-slate-700">
@@ -77,7 +77,7 @@ export default function CasesOverviewPage() {
                   <li key={highlight}>{highlight}</li>
                 ))}
               </ul>
-              <Link to={item.to} className="inline-block font-semibold text-accent-700 hover:text-accent-800 hover:underline">
+              <Link to={item.to} className="link-inline no-underline">
                 Vollständigen Case ansehen →
               </Link>
             </div>
@@ -85,14 +85,14 @@ export default function CasesOverviewPage() {
         ))}
       </div>
 
-      <div className="rounded-3xl border border-slate-200 bg-white p-7 md:p-10">
+      <div className="surface-card p-7 md:p-10">
         <h2 className="text-2xl font-semibold text-slate-900 md:text-3xl">Nächster Schritt: Austausch zur Rolle</h2>
         <p className="mt-3 max-w-3xl text-slate-600">
           Wenn Sie die Cases auf Ihre aktuelle Wachstums- oder Transformationssituation übertragen möchten,
           freue ich mich auf ein Gespräch.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <Link to="/kontakt" className="rounded-md bg-slate-900 px-6 py-3 font-semibold text-white hover:bg-slate-700">
+          <Link to="/kontakt" className="cta-primary">
             Gespräch vereinbaren
           </Link>
         </div>
