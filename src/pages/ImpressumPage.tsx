@@ -14,7 +14,7 @@ export default function ImpressumPage() {
             href="mailto:martinfischer.jnb@gmail.com"
             className="link-inline"
           >
-            martinfischer.jnb@gmail.com
+            kontakt@martin-fischer-ai-marketing.de
           </a>
         </p>
 
