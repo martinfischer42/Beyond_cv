@@ -95,9 +95,6 @@ export default function CasesOverviewPage() {
           <Link to="/kontakt" className="rounded-md bg-slate-900 px-6 py-3 font-semibold text-white hover:bg-slate-700">
             Gespräch vereinbaren
           </Link>
-          <Link to="/profil" className="rounded-md border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:bg-slate-100">
-            Profil ansehen
-          </Link>
         </div>
       </div>
     </section>
