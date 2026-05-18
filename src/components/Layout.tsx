@@ -74,9 +74,7 @@ export default function Layout() {
                   ))}
               <Link
                 to="/kontakt"
-                className={`ml-2 rounded-md px-4 py-2 text-sm font-semibold text-white transition ${
-                  isHomePage ? 'bg-[#FF4A2D] hover:bg-[#E8452A]' : 'bg-accent-600 hover:bg-accent-700'
-                }`}
+                className="ml-2 cta-primary"
               >
                 Contact
               </Link>
@@ -111,7 +109,7 @@ export default function Layout() {
         </div>
       </header>
 
-      <main className={isHomePage ? 'w-full' : 'mx-auto w-full max-w-content px-5 py-10 md:px-8 md:py-16'}>
+      <main className={isHomePage ? 'w-full' : 'page-shell'}>
         <Outlet />
       </main>
 
@@ -121,18 +119,18 @@ export default function Layout() {
           <p>Marketing-Teams entwickeln. Wachstum fördern. KI wirksam nutzen.</p>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link to="/kontakt" className="hover:text-slate-700 hover:underline">
+            <Link to="/kontakt" className="link-inline no-underline">
               Kontakt
             </Link>
             <a
               href="https://www.linkedin.com/in/martin-fischer-299b19116"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-slate-700 hover:underline"
+              className="link-inline no-underline"
             >
               LinkedIn
             </a>
-            <Link to="/impressum" className="hover:text-slate-700 hover:underline">
+            <Link to="/impressum" className="link-inline no-underline">
               Impressum
             </Link>
           </div>
