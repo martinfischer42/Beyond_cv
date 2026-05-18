@@ -24,9 +24,9 @@ const cases = [
     visual: caseVisuals.ai,
   },
   {
-    title: 'Marketing Automation & CRM-Verzahnung',
-    impact: 'Von ad-hoc Einzelmaßnahmen zu einer strukturierten Kampagnen-Architektur mit klaren KPIs, verbesserten Datenmodellen und stabilen Prozessen.',
-    highlights: ['85 % Plattformkostenreduktion', 'Awareness- & Lead-Nurturing-Strecken'],
+    title: 'Einführung Kampagnen-Management',
+    impact: 'Von ungesteuerten Einzelmaßnahmen zur Orchestrierung eines Marketing-Mixes mit starker KI-Unterstützung.',
+    highlights: ['Steigerung der Leadgenerierung', 'Steigerung der Team-Produktivität'],
     to: '/cases/marketing-automation',
     visual: caseVisuals.automation,
   },
