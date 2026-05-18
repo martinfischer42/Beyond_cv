@@ -21,10 +21,10 @@ export default function ContactPage() {
           <p>
             <span className="font-semibold">E-Mail:</span>{' '}
             <a
-              href="mailto:martinfischer.jnb@gmail.com"
+              href="mailto:kontakt@martin-fischer-ai-marketing.de"
               className="link-inline"
             >
-              martinfischer.jnb@gmail.com
+              kontakt@martin-fischer-ai-marketing.de
             </a>
           </p>
 
