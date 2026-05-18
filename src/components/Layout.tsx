@@ -3,8 +3,6 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const primaryNavItems = [
   { href: '/#about', label: 'About' },
-  { href: '/#impact', label: 'Impact' },
-  { href: '/#leadership', label: 'Leadership' },
   { href: '/cases', label: 'Cases' },
 ];
 
