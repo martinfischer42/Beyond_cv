@@ -45,8 +45,9 @@ export default function HomePage() {
 
       <section className="mx-auto w-full max-w-content px-5 py-2 md:px-8 md:py-4">
         <p className="max-w-4xl text-base leading-relaxed text-slate-700 md:text-xl">
-          Ich helfe Unternehmen, komplexe Produkte verständlich zu positionieren, Marketing-Teams leistungsfähiger zu
-          machen und Prozesse, Daten und Technologie so zu verbinden, dass messbarer Business Impact entsteht.
+          Ich führe Ihr Marketing Team durch die KI-Transformation und bringe es so auf ganz neues Level - situativ, empatisch und kollaborativ.
+          Als Senior leite ich fachlich fundiert und stets mit dem Ziel, messbare Erfolge vorzuweisen.
+          Mein innerer Antrieb: Lerne jeden Tag dazu und mache das Heute zu einem besseren Morgen.
         </p>
 
         <p className="mt-5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-600 md:text-sm">
@@ -91,8 +92,8 @@ export default function HomePage() {
       <section className="mx-auto w-full max-w-content px-5 md:px-8">
         <div className="rounded-3xl border border-slate-200 bg-slate-900 px-6 py-8 text-white md:px-10 md:py-10">
           <p className="max-w-4xl text-lg leading-relaxed text-slate-100 md:text-2xl">
-            Ich bin offen für Rollen als Marketing Lead, Teamlead Marketing oder Head of Marketing — besonders in B2B
-            Software, Logistik und digitalen Services.
+            Ich bin offen für Rollen als Teamlead Marketing oder Head of Marketing — besonders in B2B
+            Software, Logistik und Defence.
           </p>
 
           <div className="mt-6">

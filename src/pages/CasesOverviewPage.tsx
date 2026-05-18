@@ -17,23 +17,23 @@ const caseVisuals = {
 
 const cases = [
   {
-    title: 'AI-gestützte Marketing-Team-Transformation',
-    impact: 'Transformation eines verkleinerten Teams in eine leistungsfähige, AI-gestützte Marketing-Einheit mit höherer Konsistenz, Qualität und Output.',
+    title: 'Team-Transformation',
+    impact: 'Transformation eines verkleinerten Teams in eine leistungsfähige, AI-fokussierte Marketing-Einheit mit höherer Konsistenz, Qualität und Output.',
     highlights: ['AI-gestützte Marketing-Einheit', 'KPI-Framework für E-Mail, Social Media und Website'],
     to: '/cases/ai-marketing-scaling',
     visual: caseVisuals.ai,
   },
   {
-    title: 'Marketing Automation & CRM-Verzahnung',
-    impact: 'Von ad-hoc E-Mail-Versand zu einer strukturierten Automation-Architektur mit klaren KPIs, verbesserten Datenmodellen und stabilen Prozessen.',
-    highlights: ['85 % Plattformkostenreduktion', 'Awareness- & Lead-Nurturing-Strecken'],
+    title: 'Einführung Kampagnen-Management',
+    impact: 'Von ungesteuerten Einzelmaßnahmen zur Orchestrierung eines Marketing-Mixes mit starker KI-Unterstützung.',
+    highlights: ['Steigerung der Leadgenerierung', 'Steigerung der Team-Produktivität'],
     to: '/cases/marketing-automation',
     visual: caseVisuals.automation,
   },
   {
     title: 'CMS-/Marketing-Tech-Transformation',
     impact: 'Ablösung eines kostenintensiven Enterprise-CMS durch TYPO3 mit signifikant reduzierter Kostenbasis und höherer Umsetzungsgeschwindigkeit.',
-    highlights: ['700.000 € → 55.000 € jährliche Kosten', 'Tool-Owner von Auswahl bis Go-live'],
+    highlights: ['700.000 € → 55.000 € jährliche Kosten', 'Verantwortung von Auswahl bis Go-live'],
     to: '/cases/cms-migration',
     visual: caseVisuals.cms,
   },

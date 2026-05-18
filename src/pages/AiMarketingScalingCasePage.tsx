@@ -8,24 +8,26 @@ const highlights = [
 
 const sections = [
   {
-    title: 'Ausgangslage / Herausforderung',
-    text: 'Nach einer Teamverkleinerung musste Marketing trotz begrenzter Ressourcen verlässlich liefern. Die bestehende Arbeitsweise war stark auf Einzelbeiträge ausgelegt und nur eingeschränkt skalierbar.',
+    title: 'Die Ausgangslage',
+    text: 'Sowohl das Team als auch das Budget wurden kontinuierlich reduziert. Unternehmerische Entscheidungen haben ein aus Spezialisten bestehendes Team nahezu handlungsunfähig gemacht.',
   },
   {
     title: 'Strategischer Ansatz',
-    text: 'Aufbau eines leistungsfähigen Generalisten-Modells mit klaren Prioritäten, standardisierten Prozessen und AI als integraler Bestandteil der täglichen Wertschöpfung.',
+    text: 'Aufbau eines leistungsfähigen Generalisten-Modells mit klaren Prioritäten, standardisierten Prozessen, einem erhöhten Automatisierungsgrad und KI als integraler Bestandteil der täglichen Wertschöpfung.',
   },
   {
-    title: 'Umsetzung / Hebel',
-    text: 'Einführung eines KPI-basierten Steuerungsmodells, Automatisierung repetitiver Aufgaben und AI-gestützte Workflows für Recherche, Content-Entwicklung, Qualitätssicherung und Kampagnenadaption.',
+    title: 'Umsetzung',
+    text: `Ich habe dafür gesorgt, dass neue Fähigkeiten hin zum Marketing-Generalisten durch interne Wissensvermittlung und erweiterte Verantwortlichkeiten aufgebaut wurden. Die Einführung eines Kampagnenmanagements hat die thematische Steuerung stark erleichtert und gleichzeitig die Messung des Business Impacts erst möglich gemacht.
+
+Einführung eines KPI-basierten Steuerungsmodells, Automatisierung repetitiver Aufgaben und KI-gestützte Workflows für Recherche, Content-Entwicklung, Qualitätssicherung und Kampagnenadaption haben weitere Kapazitätslücken gefüllt.`,
   },
   {
-    title: 'Ergebnis / Business Impact',
-    text: 'Höhere Konsistenz, Qualität und Output trotz kleinerer Teamgröße. Marketing etablierte sich als Vorreiter für AI-driven Arbeitsweisen in Non-Engineering-Bereichen.',
+    title: 'Ergebnis',
+    text: 'Höhere Konsistenz, Qualität und Output trotz kleinerer Teamgröße und reduziertem Budget. Das Marketing-Team etablierte sich als Vorreiter für AI-driven Arbeitsweisen in Non-Engineering-Bereichen. Heute unterstütze ich auch andere Teams in der KI-Transformation.',
   },
   {
     title: 'Relevanz für zukünftige Rollen',
-    text: 'Besonders relevant für Führungsrollen, die Wachstum unter Ressourcenrestriktionen ermöglichen und Marketing als strategische Transformationsfunktion aufstellen wollen.',
+    text: 'Besonders relevant für Führungsrollen, die Wachstum unter Ressourcenrestriktionen ermöglichen und Marketing als strategische Transformationsfunktion aufstellen wollen. Ich habe die Fähigkeit und den inneren Antrieb, zielgerichtete, stetige Veränderung und Weiterentwicklung sowohl bei mir selbst als auch im Team voranzutreiben.',
   },
 ] as const;
 
@@ -35,7 +37,7 @@ export default function AiMarketingScalingCasePage() {
       <div className="grid gap-8 overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5 p-7 md:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-700">Case 01</p>
-          <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">AI-gestützte Marketing-Team-Transformation</h1>
+          <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">Marketing-Team-Transformation</h1>
           <p className="text-lg text-slate-600">
             Transformation eines verkleinerten Teams in eine leistungsfähige Marketing-Einheit mit belastbarer
             Delivery-Struktur und klarer KPI-Steuerung.
@@ -61,7 +63,7 @@ export default function AiMarketingScalingCasePage() {
         {sections.map((section) => (
           <article key={section.title} className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
             <h2 className="text-2xl font-semibold text-slate-900">{section.title}</h2>
-            <p className="mt-3 text-slate-600">{section.text}</p>
+            <p className="mt-3 whitespace-pre-line text-slate-600">{section.text}</p>
           </article>
         ))}
       </div>
