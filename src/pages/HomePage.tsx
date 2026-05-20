@@ -23,7 +23,7 @@ export default function HomePage() {
     <section className="space-y-8 pb-8 md:space-y-12 md:pb-12">
       <section className="relative isolate min-h-[560px] overflow-hidden bg-[#07090D] md:min-h-[660px]">
         <img
-          src="/images/hero.png"
+          src="/images/Portrait_Hero_MF.png"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
