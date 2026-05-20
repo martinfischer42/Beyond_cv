@@ -8,7 +8,7 @@ const highlights = [
 
 const sections = [
   {
-    title: 'Die Ausgangslage',
+    title: 'Ausgangslage',
     text: 'Sowohl das Team als auch das Budget wurden kontinuierlich reduziert. Unternehmerische Entscheidungen haben ein aus Spezialisten bestehendes Team nahezu handlungsunfähig gemacht.',
   },
   {
