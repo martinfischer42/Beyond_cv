@@ -9,6 +9,7 @@ const primaryNavItems = [
 const secondaryNavItems = [
   { to: '/', label: 'Start' },
   { to: '/cases', label: 'Cases' },
+  { to: '/lebenslauf', label: 'Lebenslauf' },
   { to: '/kontakt', label: 'Kontakt' },
   { to: '/impressum', label: 'Impressum' },
 ];
