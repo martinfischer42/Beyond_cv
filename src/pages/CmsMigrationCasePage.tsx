@@ -9,10 +9,8 @@ const sections = [
   },
   {
     title: 'Strategischer Ansatz',
-    text: 'Im ersten Schritt wurde eine umfassende Umfeldanalyse durchgeführt. Cloud-Lösungen und On premise-Anbieter, WYSISWYG und Headless, unterschiedliche Programmiersprachen wurden gegeneinander gechallenged.',
+    text: 'Im ersten Schritt wurde eine umfassende Umfeldanalyse durchgeführt. Cloud-Lösungen und On-Premise-Anbieter, WYSIWYG- und Headless-Ansätze sowie unterschiedliche technologische Optionen wurden gegeneinander bewertet.',
   },
-  {
-    title: 'Umsetzung',
   {
     title: 'Umsetzung',
     text: 'TYPO3 wurde als flexible Open-Source-CMS-Basis ausgewählt. In der Verantwortung als Tool Owner steuerte ich Anforderungsdefinition, Systemauswahl, Implementierung und Go-live. Parallel wurden strukturelle Grundlagen für SEO, SEA und datengetriebene Weiterentwicklung geschaffen.',
@@ -20,7 +18,6 @@ const sections = [
   {
     title: 'Ergebnis / Business Impact',
     text: 'Die jährlichen Plattform- und Entwicklungskosten wurden von ca. 700.000 € auf rund 55.000 € reduziert. Diese Effizienzsteigerung ist auch heute noch belastbar. Zugleich stiegen Flexibilität und Umsetzungsgeschwindigkeit deutlich. Das CMS wird kontinuierlich weiterentwickelt; der nächste logische Schritt ist die Evaluation KI-gestützter Möglichkeiten für Content, Struktur und Frontend-nahe Umsetzung.',
-  },
   },
   {
     title: 'Relevanz für zukünftige Rollen',
