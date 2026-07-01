@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 
 type FormValues = {
   firma: string;
@@ -50,103 +50,102 @@ function validate(values: FormValues): FormErrors {
 }
 
 function DownloadGate() {
-  const [isOpen, setIsOpen] = useState(false);
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(() => {
+    if (typeof window === 'undefined') return false;
 
-  const submitLabel = useMemo(() => {
-    if (isLoading) return 'Wird gesendet...';
-    if (isSuccess) return 'Erfolgreich gesendet';
-    return 'Anfrage senden';
-  }, [isLoading, isSuccess]);
+    return window.localStorage.getItem('cvRequestSubmitted') === 'true';
+  });
 
   const onChange = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
     if (errors[key]) {
       setErrors((prev) => ({ ...prev, [key]: undefined }));
     }
+    if (error) setError('');
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const nextErrors = validate(values);
     setErrors(nextErrors);
 
-    if (Object.keys(nextErrors).length > 0) return;
-
-    setIsLoading(true);
-
-    try {
-      // TODO: Falls ein Backend-Endpunkt verfügbar ist, Anfrage serverseitig speichern/benachrichtigen (z. B. /api/contact).
-      await new Promise((resolve) => setTimeout(resolve, 600));
-      setIsSuccess(true);
-    } finally {
-      setIsLoading(false);
+    if (Object.keys(nextErrors).length > 0) {
+      setError(
+        nextErrors.email === 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+          ? 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+          : 'Bitte füllen Sie alle Pflichtfelder aus.',
+      );
+      return;
     }
+
+    window.localStorage.setItem('cvRequestSubmitted', 'true');
+    setError('');
+    setIsSubmitted(true);
   };
 
   return (
     <div className="surface-card p-6 md:p-8">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h2 className="text-xl font-semibold md:text-2xl">Lebenslauf als PDF</h2>
-          <p className="mt-1 text-sm text-slate-600">Erst nach kurzer Anfrage wird der Download freigegeben.</p>
-        </div>
-
-        {!isOpen && (
-          <button type="button" className="cta-primary" onClick={() => setIsOpen(true)}>
-            Lebenslauf als PDF anfordern
-          </button>
-        )}
+      <div>
+        <h2 className="text-xl font-semibold md:text-2xl">Lebenslauf als PDF</h2>
+        <p className="mt-1 text-sm text-slate-600">Erst nach kurzer Anfrage wird der Download freigegeben.</p>
       </div>
 
-      {isOpen && (
-        <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
-          {!isSuccess ? (
-            <form className="space-y-4" onSubmit={handleSubmit} noValidate>
-              <div className="grid gap-4 md:grid-cols-2">
-                {([
-                  { key: 'firma', label: 'Firma', type: 'text' },
-                  { key: 'vorname', label: 'Vorname', type: 'text' },
-                  { key: 'name', label: 'Name', type: 'text' },
-                  { key: 'email', label: 'E-Mail-Adresse', type: 'email' },
-                ] as const).map((field) => (
-                  <label key={field.key} className="block text-sm font-semibold text-slate-800">
-                    {field.label}
-                    <input
-                      type={field.type}
-                      value={values[field.key]}
-                      onChange={(event) => onChange(field.key, event.target.value)}
-                      className={`mt-1 w-full rounded-md border bg-white px-3 py-2 font-normal text-slate-800 outline-none transition focus:border-slate-400 ${
-                        errors[field.key] ? 'border-red-500' : 'border-slate-300'
-                      }`}
-                    />
-                    {errors[field.key] && <span className="mt-1 block text-xs text-red-600">{errors[field.key]}</span>}
-                  </label>
-                ))}
-              </div>
-
-              <p className="text-xs text-slate-600">
-                Ich verwende Ihre Angaben ausschließlich zur Bearbeitung der Lebenslauf-Anfrage.
+      <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
+        {!isSubmitted ? (
+          <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+            {error && (
+              <p className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700" role="alert">
+                {error}
               </p>
+            )}
 
-              <button type="submit" className="cta-primary" disabled={isLoading}>
-                {submitLabel}
-              </button>
-            </form>
-          ) : (
-            <div className="space-y-4">
-              <p className="font-semibold text-emerald-700">Vielen Dank. Der Download ist jetzt verfügbar.</p>
-              <a href="/downloads/Lebenslauf_Martin_Fischer.pdf" className="cta-primary" download>
-                PDF herunterladen
-              </a>
+            <div className="grid gap-4 md:grid-cols-2">
+              {([
+                { key: 'firma', label: 'Firma', type: 'text' },
+                { key: 'vorname', label: 'Vorname', type: 'text' },
+                { key: 'name', label: 'Name', type: 'text' },
+                { key: 'email', label: 'E-Mail-Adresse', type: 'email' },
+              ] as const).map((field) => (
+                <label key={field.key} className="block text-sm font-semibold text-slate-800">
+                  {field.label}
+                  <input
+                    type={field.type}
+                    value={values[field.key]}
+                    onChange={(event) => onChange(field.key, event.target.value)}
+                    required
+                    aria-invalid={Boolean(errors[field.key])}
+                    className={`mt-1 w-full rounded-md border bg-white px-3 py-2 font-normal text-slate-800 outline-none transition focus:border-slate-400 ${
+                      errors[field.key] ? 'border-red-500' : 'border-slate-300'
+                    }`}
+                  />
+                  {errors[field.key] && <span className="mt-1 block text-xs text-red-600">{errors[field.key]}</span>}
+                </label>
+              ))}
             </div>
-          )}
-        </div>
-      )}
+
+            <p className="text-xs text-slate-600">
+              Ich verwende Ihre Angaben ausschließlich zur Bearbeitung der Lebenslauf-Anfrage.
+            </p>
+
+            <button type="submit" className="cta-primary">
+              Anfrage senden
+            </button>
+          </form>
+        ) : (
+          <div className="space-y-4">
+            <p className="font-semibold text-emerald-700">
+              Vielen Dank. Die Anfrage wurde freigegeben. Sie können den Lebenslauf jetzt herunterladen.
+            </p>
+            <a href="/Lebenslauf_Martin_Fischer.pdf" className="cta-primary" download>
+              Lebenslauf herunterladen
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
