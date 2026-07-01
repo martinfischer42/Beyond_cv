@@ -8,3 +8,7 @@ dist/
 !.env.example
 .idea/
 .vscode/
+
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
