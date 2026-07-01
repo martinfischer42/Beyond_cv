@@ -9,15 +9,15 @@ const sections = [
   },
   {
     title: 'Strategischer Ansatz',
-    text: 'Im ersten Schritt wurde eine umfassende Umfeldanalyse durchgeführt. Cloud-Lösungen und On premise-Anbieter, WYSISWYG und Headless, unterschiedliche Programmiersprachen wurden gegeneinander gechallenged.',
+    text: 'Im ersten Schritt wurde eine umfassende Umfeldanalyse durchgeführt. Cloud-Lösungen und On-Premise-Anbieter, WYSIWYG- und Headless-Ansätze sowie unterschiedliche technologische Optionen wurden gegeneinander bewertet.',
   },
   {
     title: 'Umsetzung',
-    text: 'Typo3 als etablierte Programmiersprache ist wegen der hohen Flexibilität und der hohen Verfügbarkeit externer Entwickler sollte die Basis stellen. In der Funktion als Product Owner war ich in der Verantwortung für die Anforderungsdefinition, Systemauswahl, Implementierungssteuerung und Go-live. Parallel wurden strukturelle Grundlagen für SEO, SEA und datengetriebene Weiterentwicklung geschaffen. Besonders herausfordernd war die Zeit, in der dieses Projekt fertiggestellt werden musste. Der Corona Lockdown wurde ausgerufen und mein erstes Kind wurde geboren. ',
+    text: 'TYPO3 wurde als flexible Open-Source-CMS-Basis ausgewählt. In der Verantwortung als Tool Owner steuerte ich Anforderungsdefinition, Systemauswahl, Implementierung und Go-live. Parallel wurden strukturelle Grundlagen für SEO, SEA und datengetriebene Weiterentwicklung geschaffen.',
   },
   {
     title: 'Ergebnis / Business Impact',
-    text: 'Reduktion jährlicher Plattform- und Entwicklungskosten von ca. 700.000 € auf rund 55.000 € hat sich bewahrheitet und ist auch heute (2026) noch aktuell. Zugleich stiegen Flexibilität und Umsetzungsgeschwindigkeit deutlich. Zusammen mit einem internen UX Designer entwickeln wir das CMS kontinuierlich weiter. Der nächste plausible Schritt wäre nun, die Möglichkeiten durch KI zu evaluieren. Denn heute ist eine React SPA als auch ohne Software Engineering möglich.',
+    text: 'Die jährlichen Plattform- und Entwicklungskosten wurden von ca. 700.000 € auf rund 55.000 € reduziert. Diese Effizienzsteigerung ist auch heute noch belastbar. Zugleich stiegen Flexibilität und Umsetzungsgeschwindigkeit deutlich. Das CMS wird kontinuierlich weiterentwickelt; der nächste logische Schritt ist die Evaluation KI-gestützter Möglichkeiten für Content, Struktur und Frontend-nahe Umsetzung.',
   },
   {
     title: 'Relevanz für zukünftige Rollen',
