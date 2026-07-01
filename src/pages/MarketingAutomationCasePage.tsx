@@ -30,7 +30,7 @@ export default function MarketingAutomationCasePage() {
     <section className="subpage-stack">
       <div className="surface-card grid gap-8 overflow-hidden lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5 p-7 md:p-10">
-          <p className="kicker">Case 02</p>
+          <p className="kicker">Case 04</p>
           <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">Kampagnenmanagement</h1>
           <p className="text-lg text-slate-600">
             Ganzheitliche Orchestrierung vormals losgelöster Marketing-Maßnahmen zu Erhöhung des Wirkungsgrades.
@@ -64,8 +64,8 @@ export default function MarketingAutomationCasePage() {
       <div className="rounded-3xl border border-slate-200 bg-slate-900 p-7 text-white md:p-10">
         <h2 className="text-2xl font-semibold md:text-3xl">Von Prozessklarheit zu messbarer Wirkung.</h2>
         <div className="mt-6 flex flex-wrap gap-4">
-          <Link to="/cases/cms-migration" className="cta-secondary border-white/40 bg-white text-slate-900 hover:bg-slate-100">
-            Nächster Case
+          <Link to="/cases" className="cta-secondary border-white/40 bg-white text-slate-900 hover:bg-slate-100">
+            Zur Case-Übersicht
           </Link>
           <Link to="/kontakt" className="cta-primary">
             Gespräch anfragen

@@ -1,14 +1,9 @@
 import { useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 
-const primaryNavItems = [
-  { href: '/#about', label: 'About' },
-  { href: '/cases', label: 'Cases' },
-];
-
-const secondaryNavItems = [
+const navItems = [
   { to: '/', label: 'Start' },
-  { to: '/cases', label: 'Cases' },
+  { to: '/cases', label: 'Projekte' },
   { to: '/lebenslauf', label: 'Lebenslauf' },
   { to: '/kontakt', label: 'Kontakt' },
   { to: '/impressum', label: 'Impressum' },
@@ -48,36 +43,30 @@ export default function Layout() {
             </button>
 
             <nav className="hidden items-center gap-1 text-sm font-medium md:flex">
-              {isHomePage
-                ? primaryNavItems.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="rounded-md px-3 py-2 text-white/85 transition-colors hover:bg-white/10 hover:text-white"
-                    >
-                      {item.label}
-                    </a>
-                  ))
-                : secondaryNavItems.map((item) => (
-                    <NavLink
-                      key={item.to}
-                      to={item.to}
-                      className={({ isActive }) =>
-                        `rounded-md px-3 py-2 transition-colors ${
-                          isActive
-                            ? 'bg-slate-900 text-white'
-                            : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                        }`
-                      }
-                    >
-                      {item.label}
-                    </NavLink>
-                  ))}
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `rounded-md px-3 py-2 transition-colors ${
+                      isActive
+                        ? isHomePage
+                          ? 'bg-white/15 text-white'
+                          : 'bg-slate-900 text-white'
+                        : isHomePage
+                          ? 'text-white/85 hover:bg-white/10 hover:text-white'
+                          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ))}
               <Link
                 to="/kontakt"
                 className="ml-2 cta-primary"
               >
-                Contact
+                Kontakt
               </Link>
             </nav>
           </div>
@@ -88,22 +77,25 @@ export default function Layout() {
                 isHomePage ? 'border-white/20' : 'border-slate-200'
               }`}
             >
-              {(isHomePage
-                ? [...primaryNavItems, { href: '/kontakt', label: 'Contact' }]
-                : secondaryNavItems.map((item) => ({ href: item.to, label: item.label }))
-              ).map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                    isHomePage
-                      ? 'text-white/90 hover:bg-white/10 hover:text-white'
-                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                  }`}
+                  className={({ isActive }) =>
+                    `rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? isHomePage
+                          ? 'bg-white/15 text-white'
+                          : 'bg-slate-900 text-white'
+                        : isHomePage
+                          ? 'text-white/90 hover:bg-white/10 hover:text-white'
+                          : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    }`
+                  }
                 >
                   {item.label}
-                </a>
+                </NavLink>
               ))}
             </nav>
           )}
