@@ -36,7 +36,7 @@ export default function AiMarketingScalingCasePage() {
     <section className="subpage-stack">
       <div className="surface-card grid gap-8 overflow-hidden lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5 p-7 md:p-10">
-          <p className="kicker">Case 01</p>
+          <p className="kicker">Case 02</p>
           <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">Marketing-Team-Transformation</h1>
           <p className="text-lg text-slate-600">
             Transformation eines verkleinerten Teams in eine leistungsfähige Marketing-Einheit mit belastbarer
@@ -72,7 +72,7 @@ export default function AiMarketingScalingCasePage() {
         <p className="kicker text-slate-300">Weiterführung</p>
         <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Dieses Setup lässt sich direkt auf neue Growth-Phasen übertragen.</h2>
         <div className="mt-6 flex flex-wrap gap-4">
-          <Link to="/cases/marketing-automation" className="cta-secondary border-white/40 bg-white text-slate-900 hover:bg-slate-100">
+          <Link to="/cases/cms-migration" className="cta-secondary border-white/40 bg-white text-slate-900 hover:bg-slate-100">
             Nächster Case
           </Link>
           <Link to="/kontakt" className="cta-primary">
