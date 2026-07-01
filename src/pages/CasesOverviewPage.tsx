@@ -13,6 +13,10 @@ const caseVisuals = {
     src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80',
     alt: 'Digitale Infrastruktur als Grundlage für skalierbares Marketing',
   },
+  aiFirst: {
+    src: '/images/hero.png',
+    alt: 'Abstrakte digitale Arbeitsumgebung als Symbol für AI-first Transformation',
+  },
 } as const;
 
 const cases = [
@@ -37,6 +41,13 @@ const cases = [
     to: '/cases/cms-migration',
     visual: caseVisuals.cms,
   },
+  {
+    title: 'AI-first Unternehmenstransformation',
+    impact: 'Mitgestaltung einer unternehmensweiten AI-first Arbeitsweise mit Tool Ownership, Governance, Enablement und messbarer Reifegradentwicklung.',
+    highlights: ['Tool Ownership für ChatGPT', 'AI Community und Enablement'],
+    to: '/cases/ai-first-transformation',
+    visual: caseVisuals.aiFirst,
+  },
 ] as const;
 
 export default function CasesOverviewPage() {
@@ -47,7 +58,7 @@ export default function CasesOverviewPage() {
           <p className="kicker">Executive Portfolio</p>
           <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">Cases mit Business Impact</h1>
           <p className="max-w-2xl text-lg text-slate-600">
-            Drei Transformations-Cases als belastbare Wirkungsnachweise für strategische Marketingführung,
+            Vier Transformations-Cases als belastbare Wirkungsnachweise für strategische Marketingführung,
             Technologie-Entscheidungen und skalierbare B2B-Execution.
           </p>
         </div>
@@ -57,11 +68,12 @@ export default function CasesOverviewPage() {
             <li>85 % Plattformkostenreduktion in Marketing Automation</li>
             <li>700.000 € → 55.000 € jährliche CMS-/Plattformkosten</li>
             <li>AI-gestützte Teamstruktur für mehr Output bei begrenzten Ressourcen</li>
+            <li>AI-first Transformation mit Governance, Enablement und Reifegradmessung</li>
           </ul>
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {cases.map((item) => (
           <article key={item.to} className="surface-card overflow-hidden">
             <div className="relative h-44 bg-slate-200">
