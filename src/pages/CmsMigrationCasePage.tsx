@@ -4,20 +4,23 @@ const highlights = ['AEM → TYPO3 Migration', '700.000 € → 55.000 € jähr
 
 const sections = [
   {
-    title: 'Ausgangslage / Herausforderung',
-    text: 'Ein kostenintensives Enterprise-CMS band erhebliche Budgetanteile und verlangsamte Marketing-seitige Umsetzung. Gleichzeitig stiegen Anforderungen an Performance, SEO/SEA-Fähigkeit und Content-Flexibilität.',
+    title: 'Ausgangslage',
+    text: 'Ein kostenintensives Enterprise-CMS band erhebliche Budgetanteile. Die zusätzlich erforderliche externe Entwicklungsunterstützung machte den Betrieb einer einfachen Website teuer und unflexibel. Getrieben von Einsparzielen sollte hier eine neue Lösung gefunden werden. Mehr Flexibilität bei geringeren Kosten war der Anspruch.',
   },
   {
     title: 'Strategischer Ansatz',
-    text: 'Ablösung von Adobe Experience Manager durch TYPO3 mit Fokus auf Wirtschaftlichkeit, Governance, Time-to-Market und technischer Anschlussfähigkeit für Performance-Marketing.',
+    text: 'Im ersten Schritt wurde eine umfassende Umfeldanalyse durchgeführt. Cloud-Lösungen und On premise-Anbieter, WYSISWYG und Headless, unterschiedliche Programmiersprachen wurden gegeneinander gechallenged.',
   },
   {
     title: 'Umsetzung',
-    text: 'Verantwortung als Tool Owner für Anforderungsdefinition, Systemauswahl, Implementierungssteuerung und Go-live. Parallel wurden strukturelle Grundlagen für SEO, SEA und datengetriebene Weiterentwicklung geschaffen.',
+  {
+    title: 'Umsetzung',
+    text: 'TYPO3 wurde als flexible Open-Source-CMS-Basis ausgewählt. In der Verantwortung als Tool Owner steuerte ich Anforderungsdefinition, Systemauswahl, Implementierung und Go-live. Parallel wurden strukturelle Grundlagen für SEO, SEA und datengetriebene Weiterentwicklung geschaffen.',
   },
   {
-    title: 'Ergebnis',
-    text: 'Reduktion jährlicher Plattform- und Entwicklungskosten von ca. 700.000 € auf rund 55.000 €. Zugleich stiegen Flexibilität und Umsetzungsgeschwindigkeit deutlich.',
+    title: 'Ergebnis / Business Impact',
+    text: 'Die jährlichen Plattform- und Entwicklungskosten wurden von ca. 700.000 € auf rund 55.000 € reduziert. Diese Effizienzsteigerung ist auch heute noch belastbar. Zugleich stiegen Flexibilität und Umsetzungsgeschwindigkeit deutlich. Das CMS wird kontinuierlich weiterentwickelt; der nächste logische Schritt ist die Evaluation KI-gestützter Möglichkeiten für Content, Struktur und Frontend-nahe Umsetzung.',
+  },
   },
   {
     title: 'Relevanz für zukünftige Rollen',
