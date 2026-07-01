@@ -65,7 +65,7 @@ export default function CmsMigrationCasePage() {
       <div className="rounded-3xl border border-slate-200 bg-slate-900 p-7 text-white md:p-10">
         <h2 className="text-2xl font-semibold md:text-3xl">Technologieentscheidungen mit klarer Ergebnisverantwortung.</h2>
         <div className="mt-6 flex flex-wrap gap-4">
-          <Link to="/cases/ai-first-transformation" className="cta-secondary border-white/40 bg-white text-slate-900 hover:bg-slate-100">
+          <Link to="/cases/marketing-automation" className="cta-secondary border-white/40 bg-white text-slate-900 hover:bg-slate-100">
             Nächster Case
           </Link>
           <Link to="/kontakt" className="cta-primary">

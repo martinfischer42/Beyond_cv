@@ -21,18 +21,18 @@ const caseVisuals = {
 
 const cases = [
   {
+    title: 'AI-first Transformation',
+    impact: 'Mitgestaltung einer unternehmensweiten AI-first Arbeitsweise mit Tool Ownership, Governance, Enablement und messbarer Reifegradentwicklung.',
+    highlights: ['Tool Ownership für ChatGPT', 'AI Community und Enablement'],
+    to: '/cases/ai-first-transformation',
+    visual: caseVisuals.aiFirst,
+  },
+  {
     title: 'Team-Transformation',
     impact: 'Transformation eines verkleinerten Teams in eine leistungsfähige, AI-fokussierte Marketing-Einheit mit höherer Konsistenz, Qualität und Output.',
     highlights: ['AI-gestützte Marketing-Einheit', 'KPI-Framework für E-Mail, Social Media und Website'],
     to: '/cases/ai-marketing-scaling',
     visual: caseVisuals.ai,
-  },
-  {
-    title: 'Einführung Kampagnen-Management',
-    impact: 'Von ungesteuerten Einzelmaßnahmen zur Orchestrierung eines Marketing-Mixes mit starker KI-Unterstützung.',
-    highlights: ['Steigerung der Leadgenerierung', 'Steigerung der Team-Produktivität'],
-    to: '/cases/marketing-automation',
-    visual: caseVisuals.automation,
   },
   {
     title: 'CMS-/Marketing-Tech-Transformation',
@@ -42,11 +42,11 @@ const cases = [
     visual: caseVisuals.cms,
   },
   {
-    title: 'AI-first Transformation',
-    impact: 'Mitgestaltung einer unternehmensweiten AI-first Arbeitsweise mit Tool Ownership, Governance, Enablement und messbarer Reifegradentwicklung.',
-    highlights: ['Tool Ownership für ChatGPT', 'AI Community und Enablement'],
-    to: '/cases/ai-first-transformation',
-    visual: caseVisuals.aiFirst,
+    title: 'Einführung Kampagnen-Management',
+    impact: 'Von ungesteuerten Einzelmaßnahmen zur Orchestrierung eines Marketing-Mixes mit starker KI-Unterstützung.',
+    highlights: ['Steigerung der Leadgenerierung', 'Steigerung der Team-Produktivität'],
+    to: '/cases/marketing-automation',
+    visual: caseVisuals.automation,
   },
 ] as const;
 
