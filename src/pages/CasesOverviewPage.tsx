@@ -42,7 +42,7 @@ const cases = [
     visual: caseVisuals.cms,
   },
   {
-    title: 'AI-first Unternehmenstransformation',
+    title: 'AI-first Transformation',
     impact: 'Mitgestaltung einer unternehmensweiten AI-first Arbeitsweise mit Tool Ownership, Governance, Enablement und messbarer Reifegradentwicklung.',
     highlights: ['Tool Ownership für ChatGPT', 'AI Community und Enablement'],
     to: '/cases/ai-first-transformation',
