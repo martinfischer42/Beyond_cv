@@ -49,7 +49,7 @@ export default function AiFirstTransformationCasePage() {
       <div className="surface-card grid gap-8 overflow-hidden lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5 p-7 md:p-10">
           <p className="kicker">Case 04</p>
-          <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">AI-first Unternehmenstransformation</h1>
+          <h1 className="text-3xl font-semibold text-slate-900 md:text-5xl">AI-first Transformation</h1>
           <p className="text-lg text-slate-600">
             Mitgestaltung der unternehmensweiten Transformation hin zu einer Organisation, die KI systematisch in
             Arbeitsweisen, Prozesse und Entscheidungslogiken integriert – mit klarer Tool Ownership, Governance,
