@@ -19,20 +19,28 @@ const initialValues: FormValues = {
 };
 
 const skills = [
-  'Führung von Marketing-Teams mit Fokus auf messbaren Business Impact und nachhaltige Teamzufriedenheit',
-  'Performance Marketing & datengetriebene Leadgenerierung',
-  'Content-Strategie & Content Creation (B2B, Digital Services)',
-  'Einsatz von KI zur Produktivitätssteigerung im Marketing',
-  'End-to-End Verantwortung für Marketing-Technologie-Stacks',
-  'Gestaltung und Umsetzung von Organisations- und Teamtransformationen hin zu AI-driven Entities',
+  'AI Governance & Tooling',
+  'Changemanagement',
+  'Datenanalyse',
+  'Erprobte Führungsfähigkeit im kleinen Team',
+  'Produktevermarktung (SaaS, LKW, Bus, Logistik)',
+  'E-Mail-Marketing',
+  'Event-Management',
+  'Markenmanagement',
+  'Marketingstrategie',
+  'PR & Kommunikation',
+  'Social Media Strategie & Content',
+  'Website Architektur & Content',
+  'Budgetverantwortung',
 ];
 
 const softSkills = [
-  'Entscheidungsstärke auf Basis von Analyse statt Impulsivität',
-  'Vertrauensbildende Führung und Beziehungsmanagement',
-  'Ausgeprägtes Gespür für individuelle Bedürfnisse im Team',
+  'Analytik & Entscheidungsstärke',
+  'Diplomatisches Geschick',
+  'Hands-on Mentalität',
+  'Innere Motivation zur fortwährenden Weiterentwicklung',
+  'Starke Kommunikationsfähigkeit',
   'Konfliktfähigkeit und konstruktive Vermittlung zwischen Stakeholdern',
-  'Souveränität in Veränderungs- und Transformationsprozessen',
 ];
 
 function validate(values: FormValues): FormErrors {
