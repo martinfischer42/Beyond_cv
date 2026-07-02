@@ -55,7 +55,7 @@ function DownloadGate() {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [error, setError] = useState('');
-  const [isSending, setIsSending] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(() => {
     if (typeof window === 'undefined') return false;
 
@@ -64,9 +64,11 @@ function DownloadGate() {
 
   const onChange = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
+
     if (key !== 'website' && errors[key]) {
       setErrors((prev) => ({ ...prev, [key]: undefined }));
     }
+
     if (error) setError('');
   };
 
@@ -85,7 +87,7 @@ function DownloadGate() {
       return;
     }
 
-    setIsSending(true);
+    setIsSubmitting(true);
     setError('');
 
     try {
@@ -95,8 +97,16 @@ function DownloadGate() {
         body: JSON.stringify(values),
       });
 
+      const result = (await response.json().catch(() => ({}))) as { error?: string };
+
       if (!response.ok) {
-        throw new Error('Request failed');
+        setIsSubmitted(false);
+        window.localStorage.removeItem('cvRequestSubmitted');
+        setError(
+          result.error ??
+            'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an kontakt@martin-fischer-ai-marketing.de.',
+        );
+        return;
       }
 
       window.localStorage.setItem('cvRequestSubmitted', 'true');
@@ -108,7 +118,7 @@ function DownloadGate() {
         'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an kontakt@martin-fischer-ai-marketing.de.',
       );
     } finally {
-      setIsSending(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -123,7 +133,10 @@ function DownloadGate() {
         {!isSubmitted ? (
           <form className="space-y-4" onSubmit={handleSubmit} noValidate>
             {error && (
-              <p className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700" role="alert">
+              <p
+                className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700"
+                role="alert"
+              >
                 {error}
               </p>
             )}
@@ -167,8 +180,12 @@ function DownloadGate() {
               Ich verwende Ihre Angaben ausschließlich zur Bearbeitung der Lebenslauf-Anfrage.
             </p>
 
-            <button type="submit" className="cta-primary disabled:cursor-not-allowed disabled:opacity-70" disabled={isSending}>
-              {isSending ? 'Wird gesendet…' : 'Anfrage senden'}
+            <button
+              type="submit"
+              className="cta-primary disabled:cursor-not-allowed disabled:opacity-70"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Anfrage wird gesendet …' : 'Anfrage senden'}
             </button>
           </form>
         ) : (
@@ -191,12 +208,17 @@ export default function CvPage() {
     document.title = 'Lebenslauf | Martin Fischer';
 
     let description = document.querySelector('meta[name="description"]');
+
     if (!description) {
       description = document.createElement('meta');
       description.setAttribute('name', 'description');
       document.head.appendChild(description);
     }
-    description.setAttribute('content', 'Lebenslauf von Martin Fischer – Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung.');
+
+    description.setAttribute(
+      'content',
+      'Lebenslauf von Martin Fischer – Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung.',
+    );
   }, []);
 
   return (
@@ -204,9 +226,13 @@ export default function CvPage() {
       <div className="space-y-4">
         <p className="kicker">Profil</p>
         <h1 className="text-3xl font-semibold md:text-5xl">Martin Fischer</h1>
-        <p className="text-lg font-semibold text-slate-800 md:text-2xl">Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung</p>
+        <p className="text-lg font-semibold text-slate-800 md:text-2xl">
+          Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung
+        </p>
         <p className="max-w-4xl text-slate-600">
-          Ich setze Marketing gezielt als strategisches Instrument zur Unterstützung von Unternehmenszielen ein und entwickle es systematisch weiter. Gleichzeitig professionalisiere ich Marketing-Teams so, dass Qualität, Konsistenz und Output deutlich steigen – bei hoher Motivation, Klarheit und Zufriedenheit im Team durch wirksame Führung.
+          Ich setze Marketing gezielt als strategisches Instrument zur Unterstützung von Unternehmenszielen ein und entwickle es
+          systematisch weiter. Gleichzeitig professionalisiere ich Marketing-Teams so, dass Qualität, Konsistenz und Output deutlich
+          steigen – bei hoher Motivation, Klarheit und Zufriedenheit im Team durch wirksame Führung.
         </p>
       </div>
 
@@ -215,11 +241,21 @@ export default function CvPage() {
       <article className="section-card space-y-5">
         <h2 className="text-2xl font-semibold">Kontaktinformationen</h2>
         <div className="grid gap-3 text-slate-700 md:grid-cols-2">
-          <p><span className="font-semibold">E-Mail:</span> kontakt@martin-fischer-ai-marketing.de</p>
-          <p><span className="font-semibold">Telefon:</span> 0049/176/21636276</p>
-          <p><span className="font-semibold">Standort:</span> Karlsfeld, Deutschland</p>
-          <p><span className="font-semibold">Website:</span> martin-fischer-ai-marketing.de/</p>
-          <p className="md:col-span-2"><span className="font-semibold">LinkedIn:</span> linkedin.com/in/martin-fischer-299b19116</p>
+          <p>
+            <span className="font-semibold">E-Mail:</span> kontakt@martin-fischer-ai-marketing.de
+          </p>
+          <p>
+            <span className="font-semibold">Telefon:</span> 0049/176/21636276
+          </p>
+          <p>
+            <span className="font-semibold">Standort:</span> Karlsfeld, Deutschland
+          </p>
+          <p>
+            <span className="font-semibold">Website:</span> martin-fischer-ai-marketing.de/
+          </p>
+          <p className="md:col-span-2">
+            <span className="font-semibold">LinkedIn:</span> linkedin.com/in/martin-fischer-299b19116
+          </p>
         </div>
       </article>
 
@@ -228,7 +264,9 @@ export default function CvPage() {
           <h2 className="text-2xl font-semibold">Fähigkeiten</h2>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <span key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">{skill}</span>
+              <span key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">
+                {skill}
+              </span>
             ))}
           </div>
         </article>
@@ -237,7 +275,9 @@ export default function CvPage() {
           <h2 className="text-2xl font-semibold">Soft Skills</h2>
           <div className="flex flex-wrap gap-2">
             {softSkills.map((skill) => (
-              <span key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">{skill}</span>
+              <span key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">
+                {skill}
+              </span>
             ))}
           </div>
         </article>
@@ -283,7 +323,7 @@ export default function CvPage() {
             <p className="text-slate-700">RIO | The Logistics Flow · TB Digital Services GmbH</p>
             <p className="text-sm text-slate-500">03/2016 – 11/2020</p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
-              <li>Strategische Ablösung eines kostenintensiven Enterprise-CMS (Adobe Experience Manager) durch eine flexible Open-Source-Plattform (TYPO3).</li>
+              <li>Strategische Ablösung eines kostenintensiven Enterprise-CMS Adobe Experience Manager durch eine flexible Open-Source-Plattform TYPO3.</li>
               <li>Reduktion der jährlichen Plattform- und Entwicklungskosten von ca. 700.000 € auf rund 55.000 €, bei gleichzeitiger deutlicher Steigerung von Flexibilität und Umsetzungsgeschwindigkeit.</li>
               <li>Tool-Owner-Verantwortung für Anforderungsdefinition, Systemauswahl, Umsetzung und Go-live in enger Abstimmung mit IT, externen Partnern und Management.</li>
               <li>Neustrukturierung der Website als leistungsfähiger Marken- und Kommunikationskanal, ausgerichtet an Unternehmensstrategie und Kundenbedürfnissen.</li>
@@ -301,10 +341,10 @@ export default function CvPage() {
             <p className="text-slate-700">MAN Truck & Bus SE</p>
             <p className="text-sm text-slate-500">10/2010 – 03/2016 · München, Deutschland</p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
-              <li>Teamleitung Business Development Digital Solutions (03/2015 – 03/2016)</li>
-              <li>Marketing u. Brand Manager (10/2013 – 03/2015)</li>
-              <li>Produktmarketing Experte Bus (10/2011 – 10/2013)</li>
-              <li>Projektkoordinator After Sales (10/2010 – 10/2011)</li>
+              <li>Teamleitung Business Development Digital Solutions 03/2015 – 03/2016</li>
+              <li>Marketing u. Brand Manager 10/2013 – 03/2015</li>
+              <li>Produktmarketing Experte Bus 10/2011 – 10/2013</li>
+              <li>Projektkoordinator After Sales 10/2010 – 10/2011</li>
             </ul>
           </article>
         </div>
@@ -316,8 +356,6 @@ export default function CvPage() {
         <p className="text-slate-700">Universität Bremen</p>
         <p className="text-sm text-slate-500">10/2004 – 08/2010 · Bremen</p>
       </article>
-
-      <DownloadGate />
     </section>
   );
 }
