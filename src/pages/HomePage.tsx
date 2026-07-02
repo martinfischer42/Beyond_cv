@@ -29,13 +29,10 @@ export default function HomePage() {
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
         />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-[#07090D]/90 via-[#07090D]/55 to-[#07090D]/30" />
-
         <div className="absolute inset-0 z-10">
           <div className="mx-auto flex h-full w-full max-w-[1400px] items-end px-5 pb-10 md:px-10 md:pb-16 lg:pb-20">
             <div className="max-w-[900px]">
-              <h1 className="text-[clamp(1.85rem,4.1vw,3.5rem)] font-black leading-[1.08] text-white">
+              <h1 className="text-[clamp(1.85rem,4.1vw,3.5rem)] font-black leading-[1.08] text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.35)]">
                Marketing-Teams entwickeln. Wachstum fördern. KI wirksam nutzen.
               </h1>
             </div>
