@@ -1,36 +1,46 @@
-import { FormEvent, useEffect, useMemo, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 
 type FormValues = {
   firma: string;
   vorname: string;
   name: string;
   email: string;
+  website: string;
 };
 
-type FormErrors = Partial<Record<keyof FormValues, string>>;
+type FormErrors = Partial<Record<Exclude<keyof FormValues, 'website'>, string>>;
 
 const initialValues: FormValues = {
   firma: '',
   vorname: '',
   name: '',
   email: '',
+  website: '',
 };
 
 const skills = [
-  'Führung von Marketing-Teams mit Fokus auf messbaren Business Impact und nachhaltige Teamzufriedenheit',
-  'Performance Marketing & datengetriebene Leadgenerierung',
-  'Content-Strategie & Content Creation (B2B, Digital Services)',
-  'Einsatz von KI zur Produktivitätssteigerung im Marketing',
-  'End-to-End Verantwortung für Marketing-Technologie-Stacks',
-  'Gestaltung und Umsetzung von Organisations- und Teamtransformationen hin zu AI-driven Entities',
+  'AI Governance & Tooling',
+  'Changemanagement',
+  'Datenanalyse',
+  'Erprobte Führungsfähigkeit im kleinen Team',
+  'Produktevermarktung (SaaS, LKW, Bus, Logistik)',
+  'E-Mail-Marketing',
+  'Event-Management',
+  'Markenmanagement',
+  'Marketingstrategie',
+  'PR & Kommunikation',
+  'Social Media Strategie & Content',
+  'Website Architektur & Content',
+  'Budgetverantwortung',
 ];
 
 const softSkills = [
-  'Entscheidungsstärke auf Basis von Analyse statt Impulsivität',
-  'Vertrauensbildende Führung und Beziehungsmanagement',
-  'Ausgeprägtes Gespür für individuelle Bedürfnisse im Team',
+  'Analytik & Entscheidungsstärke',
+  'Diplomatisches Geschick',
+  'Hands-on Mentalität',
+  'Innere Motivation zur fortwährenden Weiterentwicklung',
+  'Starke Kommunikationsfähigkeit',
   'Konfliktfähigkeit und konstruktive Vermittlung zwischen Stakeholdern',
-  'Souveränität in Veränderungs- und Transformationsprozessen',
 ];
 
 function validate(values: FormValues): FormErrors {
@@ -50,23 +60,24 @@ function validate(values: FormValues): FormErrors {
 }
 
 function DownloadGate() {
-  const [isOpen, setIsOpen] = useState(false);
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(() => {
+    if (typeof window === 'undefined') return false;
 
-  const submitLabel = useMemo(() => {
-    if (isLoading) return 'Wird gesendet...';
-    if (isSuccess) return 'Erfolgreich gesendet';
-    return 'Anfrage senden';
-  }, [isLoading, isSuccess]);
+    return window.localStorage.getItem('cvRequestSubmitted') === 'true';
+  });
 
   const onChange = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
-    if (errors[key]) {
+
+    if (key !== 'website' && errors[key]) {
       setErrors((prev) => ({ ...prev, [key]: undefined }));
     }
+
+    if (error) setError('');
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -75,78 +86,127 @@ function DownloadGate() {
     const nextErrors = validate(values);
     setErrors(nextErrors);
 
-    if (Object.keys(nextErrors).length > 0) return;
+    if (Object.keys(nextErrors).length > 0) {
+      setError(
+        nextErrors.email === 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+          ? 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+          : 'Bitte füllen Sie alle Pflichtfelder aus.',
+      );
+      return;
+    }
 
-    setIsLoading(true);
+    setIsSubmitting(true);
+    setError('');
 
     try {
-      // TODO: Falls ein Backend-Endpunkt verfügbar ist, Anfrage serverseitig speichern/benachrichtigen (z. B. /api/contact).
-      await new Promise((resolve) => setTimeout(resolve, 600));
-      setIsSuccess(true);
+      const response = await fetch('/api/cv-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      const result = (await response.json().catch(() => ({}))) as { error?: string };
+
+      if (!response.ok) {
+        setIsSubmitted(false);
+        window.localStorage.removeItem('cvRequestSubmitted');
+        setError(
+          result.error ??
+            'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an kontakt@martin-fischer-ai-marketing.de.',
+        );
+        return;
+      }
+
+      window.localStorage.setItem('cvRequestSubmitted', 'true');
+      setIsSubmitted(true);
+    } catch {
+      setIsSubmitted(false);
+      window.localStorage.removeItem('cvRequestSubmitted');
+      setError(
+        'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an kontakt@martin-fischer-ai-marketing.de.',
+      );
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="surface-card p-6 md:p-8">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h2 className="text-xl font-semibold md:text-2xl">Lebenslauf als PDF</h2>
-          <p className="mt-1 text-sm text-slate-600">Erst nach kurzer Anfrage wird der Download freigegeben.</p>
-        </div>
-
-        {!isOpen && (
-          <button type="button" className="cta-primary" onClick={() => setIsOpen(true)}>
-            Lebenslauf als PDF anfordern
-          </button>
-        )}
+      <div>
+        <h2 className="text-xl font-semibold md:text-2xl">Lebenslauf als PDF</h2>
+        <p className="mt-1 text-sm text-slate-600">Erst nach kurzer Anfrage wird der Download freigegeben.</p>
       </div>
 
-      {isOpen && (
-        <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
-          {!isSuccess ? (
-            <form className="space-y-4" onSubmit={handleSubmit} noValidate>
-              <div className="grid gap-4 md:grid-cols-2">
-                {([
-                  { key: 'firma', label: 'Firma', type: 'text' },
-                  { key: 'vorname', label: 'Vorname', type: 'text' },
-                  { key: 'name', label: 'Name', type: 'text' },
-                  { key: 'email', label: 'E-Mail-Adresse', type: 'email' },
-                ] as const).map((field) => (
-                  <label key={field.key} className="block text-sm font-semibold text-slate-800">
-                    {field.label}
-                    <input
-                      type={field.type}
-                      value={values[field.key]}
-                      onChange={(event) => onChange(field.key, event.target.value)}
-                      className={`mt-1 w-full rounded-md border bg-white px-3 py-2 font-normal text-slate-800 outline-none transition focus:border-slate-400 ${
-                        errors[field.key] ? 'border-red-500' : 'border-slate-300'
-                      }`}
-                    />
-                    {errors[field.key] && <span className="mt-1 block text-xs text-red-600">{errors[field.key]}</span>}
-                  </label>
-                ))}
-              </div>
-
-              <p className="text-xs text-slate-600">
-                Ich verwende Ihre Angaben ausschließlich zur Bearbeitung der Lebenslauf-Anfrage.
+      <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
+        {!isSubmitted ? (
+          <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+            {error && (
+              <p
+                className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700"
+                role="alert"
+              >
+                {error}
               </p>
+            )}
 
-              <button type="submit" className="cta-primary" disabled={isLoading}>
-                {submitLabel}
-              </button>
-            </form>
-          ) : (
-            <div className="space-y-4">
-              <p className="font-semibold text-emerald-700">Vielen Dank. Der Download ist jetzt verfügbar.</p>
-              <a href="/downloads/Lebenslauf_Martin_Fischer.pdf" className="cta-primary" download>
-                PDF herunterladen
-              </a>
+            <div className="grid gap-4 md:grid-cols-2">
+              {([
+                { key: 'firma', label: 'Firma', type: 'text' },
+                { key: 'vorname', label: 'Vorname', type: 'text' },
+                { key: 'name', label: 'Name', type: 'text' },
+                { key: 'email', label: 'E-Mail-Adresse', type: 'email' },
+              ] as const).map((field) => (
+                <label key={field.key} className="block text-sm font-semibold text-slate-800">
+                  {field.label}
+                  <input
+                    type={field.type}
+                    value={values[field.key]}
+                    onChange={(event) => onChange(field.key, event.target.value)}
+                    required
+                    aria-invalid={Boolean(errors[field.key])}
+                    className={`mt-1 w-full rounded-md border bg-white px-3 py-2 font-normal text-slate-800 outline-none transition focus:border-slate-400 ${
+                      errors[field.key] ? 'border-red-500' : 'border-slate-300'
+                    }`}
+                  />
+                  {errors[field.key] && <span className="mt-1 block text-xs text-red-600">{errors[field.key]}</span>}
+                </label>
+              ))}
             </div>
-          )}
-        </div>
-      )}
+
+            <label className="sr-only" aria-hidden="true">
+              Website
+              <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={values.website}
+                onChange={(event) => onChange('website', event.target.value)}
+              />
+            </label>
+
+            <p className="text-xs text-slate-600">
+              Ich verwende Ihre Angaben ausschließlich zur Bearbeitung der Lebenslauf-Anfrage.
+            </p>
+
+            <button
+              type="submit"
+              className="cta-primary disabled:cursor-not-allowed disabled:opacity-70"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Anfrage wird gesendet …' : 'Anfrage senden'}
+            </button>
+          </form>
+        ) : (
+          <div className="space-y-4">
+            <p className="font-semibold text-emerald-700">
+              Vielen Dank. Ihre Anfrage wurde gesendet. Sie können den Lebenslauf jetzt herunterladen.
+            </p>
+            <a href="/Lebenslauf_Martin_Fischer.pdf" className="cta-primary" download>
+              Lebenslauf herunterladen
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -156,44 +216,49 @@ export default function CvPage() {
     document.title = 'Lebenslauf | Martin Fischer';
 
     let description = document.querySelector('meta[name="description"]');
+
     if (!description) {
       description = document.createElement('meta');
       description.setAttribute('name', 'description');
       document.head.appendChild(description);
     }
-    description.setAttribute('content', 'Lebenslauf von Martin Fischer – Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung.');
+
+    description.setAttribute(
+      'content',
+      'Lebenslauf von Martin Fischer – Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung.',
+    );
   }, []);
 
   return (
     <section className="subpage-stack">
-      <div className="space-y-4">
-        <p className="kicker">Profil</p>
-        <h1 className="text-3xl font-semibold md:text-5xl">Martin Fischer</h1>
-        <p className="text-lg font-semibold text-slate-800 md:text-2xl">Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung</p>
-        <p className="max-w-4xl text-slate-600">
-          Ich setze Marketing gezielt als strategisches Instrument zur Unterstützung von Unternehmenszielen ein und entwickle es systematisch weiter. Gleichzeitig professionalisiere ich Marketing-Teams so, dass Qualität, Konsistenz und Output deutlich steigen – bei hoher Motivation, Klarheit und Zufriedenheit im Team durch wirksame Führung.
-        </p>
-      </div>
-
-      <DownloadGate />
-
-      <article className="section-card space-y-5">
-        <h2 className="text-2xl font-semibold">Kontaktinformationen</h2>
-        <div className="grid gap-3 text-slate-700 md:grid-cols-2">
-          <p><span className="font-semibold">E-Mail:</span> kontakt@martin-fischer-ai-marketing.de</p>
-          <p><span className="font-semibold">Telefon:</span> 0049/176/21636276</p>
-          <p><span className="font-semibold">Standort:</span> Karlsfeld, Deutschland</p>
-          <p><span className="font-semibold">Website:</span> martin-fischer-ai-marketing.de/</p>
-          <p className="md:col-span-2"><span className="font-semibold">LinkedIn:</span> linkedin.com/in/martin-fischer-299b19116</p>
+      <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_240px] md:gap-10">
+        <div className="space-y-4">
+          <p className="kicker">Profil</p>
+          <h1 className="text-3xl font-semibold md:text-5xl">Martin Fischer</h1>
+          <p className="text-lg font-semibold text-slate-800 md:text-2xl">
+            Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung
+          </p>
+          <p className="max-w-4xl text-slate-600">
+            Ich setze Marketing gezielt als strategisches Instrument zur Unterstützung von Unternehmenszielen ein und entwickle es
+            systematisch weiter. Gleichzeitig professionalisiere ich Marketing-Teams so, dass Qualität, Konsistenz und Output deutlich
+            steigen – bei hoher Motivation, Klarheit und Zufriedenheit im Team durch wirksame Führung.
+          </p>
         </div>
-      </article>
 
+        <img
+          src="/images/Portrait_Lebenslauf.png"
+          alt="Portrait von Martin Fischer"
+          className="mx-auto h-52 w-52 rounded-full border-4 border-white object-cover shadow-lg md:h-60 md:w-60"
+        />
+      </div>
       <section className="grid gap-6 lg:grid-cols-2">
         <article className="section-card space-y-4">
           <h2 className="text-2xl font-semibold">Fähigkeiten</h2>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <span key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">{skill}</span>
+              <span key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">
+                {skill}
+              </span>
             ))}
           </div>
         </article>
@@ -202,7 +267,9 @@ export default function CvPage() {
           <h2 className="text-2xl font-semibold">Soft Skills</h2>
           <div className="flex flex-wrap gap-2">
             {softSkills.map((skill) => (
-              <span key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">{skill}</span>
+              <span key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-700">
+                {skill}
+              </span>
             ))}
           </div>
         </article>
@@ -248,7 +315,7 @@ export default function CvPage() {
             <p className="text-slate-700">RIO | The Logistics Flow · TB Digital Services GmbH</p>
             <p className="text-sm text-slate-500">03/2016 – 11/2020</p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
-              <li>Strategische Ablösung eines kostenintensiven Enterprise-CMS (Adobe Experience Manager) durch eine flexible Open-Source-Plattform (TYPO3).</li>
+              <li>Strategische Ablösung eines kostenintensiven Enterprise-CMS Adobe Experience Manager durch eine flexible Open-Source-Plattform TYPO3.</li>
               <li>Reduktion der jährlichen Plattform- und Entwicklungskosten von ca. 700.000 € auf rund 55.000 €, bei gleichzeitiger deutlicher Steigerung von Flexibilität und Umsetzungsgeschwindigkeit.</li>
               <li>Tool-Owner-Verantwortung für Anforderungsdefinition, Systemauswahl, Umsetzung und Go-live in enger Abstimmung mit IT, externen Partnern und Management.</li>
               <li>Neustrukturierung der Website als leistungsfähiger Marken- und Kommunikationskanal, ausgerichtet an Unternehmensstrategie und Kundenbedürfnissen.</li>
@@ -266,10 +333,10 @@ export default function CvPage() {
             <p className="text-slate-700">MAN Truck & Bus SE</p>
             <p className="text-sm text-slate-500">10/2010 – 03/2016 · München, Deutschland</p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
-              <li>Teamleitung Business Development Digital Solutions (03/2015 – 03/2016)</li>
-              <li>Marketing u. Brand Manager (10/2013 – 03/2015)</li>
-              <li>Produktmarketing Experte Bus (10/2011 – 10/2013)</li>
-              <li>Projektkoordinator After Sales (10/2010 – 10/2011)</li>
+              <li>Teamleitung Business Development Digital Solutions 03/2015 – 03/2016</li>
+              <li>Marketing u. Brand Manager 10/2013 – 03/2015</li>
+              <li>Produktmarketing Experte Bus 10/2011 – 10/2013</li>
+              <li>Projektkoordinator After Sales 10/2010 – 10/2011</li>
             </ul>
           </article>
         </div>
