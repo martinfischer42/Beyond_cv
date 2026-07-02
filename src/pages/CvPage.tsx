@@ -223,17 +223,25 @@ export default function CvPage() {
 
   return (
     <section className="subpage-stack">
-      <div className="space-y-4">
-        <p className="kicker">Profil</p>
-        <h1 className="text-3xl font-semibold md:text-5xl">Martin Fischer</h1>
-        <p className="text-lg font-semibold text-slate-800 md:text-2xl">
-          Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung
-        </p>
-        <p className="max-w-4xl text-slate-600">
-          Ich setze Marketing gezielt als strategisches Instrument zur Unterstützung von Unternehmenszielen ein und entwickle es
-          systematisch weiter. Gleichzeitig professionalisiere ich Marketing-Teams so, dass Qualität, Konsistenz und Output deutlich
-          steigen – bei hoher Motivation, Klarheit und Zufriedenheit im Team durch wirksame Führung.
-        </p>
+      <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_240px] md:gap-10">
+        <div className="space-y-4">
+          <p className="kicker">Profil</p>
+          <h1 className="text-3xl font-semibold md:text-5xl">Martin Fischer</h1>
+          <p className="text-lg font-semibold text-slate-800 md:text-2xl">
+            Marketing Leader für Wachstum, Effizienz und AI-gestützte Skalierung
+          </p>
+          <p className="max-w-4xl text-slate-600">
+            Ich setze Marketing gezielt als strategisches Instrument zur Unterstützung von Unternehmenszielen ein und entwickle es
+            systematisch weiter. Gleichzeitig professionalisiere ich Marketing-Teams so, dass Qualität, Konsistenz und Output deutlich
+            steigen – bei hoher Motivation, Klarheit und Zufriedenheit im Team durch wirksame Führung.
+          </p>
+        </div>
+
+        <img
+          src="/images/Portrait_Lebenslauf.png"
+          alt="Portrait von Martin Fischer"
+          className="mx-auto h-52 w-52 rounded-full border-4 border-white object-cover shadow-lg md:h-60 md:w-60"
+        />
       </div>
 
       <DownloadGate />
