@@ -5,15 +5,17 @@ type FormValues = {
   vorname: string;
   name: string;
   email: string;
+  website: string;
 };
 
-type FormErrors = Partial<Record<keyof FormValues, string>>;
+type FormErrors = Partial<Record<Exclude<keyof FormValues, 'website'>, string>>;
 
 const initialValues: FormValues = {
   firma: '',
   vorname: '',
   name: '',
   email: '',
+  website: '',
 };
 
 const skills = [
@@ -53,6 +55,7 @@ function DownloadGate() {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [error, setError] = useState('');
+  const [isSending, setIsSending] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(() => {
     if (typeof window === 'undefined') return false;
 
@@ -61,13 +64,13 @@ function DownloadGate() {
 
   const onChange = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
-    if (errors[key]) {
+    if (key !== 'website' && errors[key]) {
       setErrors((prev) => ({ ...prev, [key]: undefined }));
     }
     if (error) setError('');
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const nextErrors = validate(values);
@@ -82,9 +85,31 @@ function DownloadGate() {
       return;
     }
 
-    window.localStorage.setItem('cvRequestSubmitted', 'true');
+    setIsSending(true);
     setError('');
-    setIsSubmitted(true);
+
+    try {
+      const response = await fetch('/api/cv-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+
+      window.localStorage.setItem('cvRequestSubmitted', 'true');
+      setIsSubmitted(true);
+    } catch {
+      setIsSubmitted(false);
+      window.localStorage.removeItem('cvRequestSubmitted');
+      setError(
+        'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an kontakt@martin-fischer-ai-marketing.de.',
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -127,18 +152,29 @@ function DownloadGate() {
               ))}
             </div>
 
+            <label className="sr-only" aria-hidden="true">
+              Website
+              <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={values.website}
+                onChange={(event) => onChange('website', event.target.value)}
+              />
+            </label>
+
             <p className="text-xs text-slate-600">
               Ich verwende Ihre Angaben ausschließlich zur Bearbeitung der Lebenslauf-Anfrage.
             </p>
 
-            <button type="submit" className="cta-primary">
-              Anfrage senden
+            <button type="submit" className="cta-primary disabled:cursor-not-allowed disabled:opacity-70" disabled={isSending}>
+              {isSending ? 'Wird gesendet…' : 'Anfrage senden'}
             </button>
           </form>
         ) : (
           <div className="space-y-4">
             <p className="font-semibold text-emerald-700">
-              Vielen Dank. Die Anfrage wurde freigegeben. Sie können den Lebenslauf jetzt herunterladen.
+              Vielen Dank. Ihre Anfrage wurde gesendet. Sie können den Lebenslauf jetzt herunterladen.
             </p>
             <a href="/Lebenslauf_Martin_Fischer.pdf" className="cta-primary" download>
               Lebenslauf herunterladen
