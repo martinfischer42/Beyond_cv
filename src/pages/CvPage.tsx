@@ -243,30 +243,6 @@ export default function CvPage() {
           className="mx-auto h-52 w-52 rounded-full border-4 border-white object-cover shadow-lg md:h-60 md:w-60"
         />
       </div>
-
-      <DownloadGate />
-
-      <article className="section-card space-y-5">
-        <h2 className="text-2xl font-semibold">Kontaktinformationen</h2>
-        <div className="grid gap-3 text-slate-700 md:grid-cols-2">
-          <p>
-            <span className="font-semibold">E-Mail:</span> kontakt@martin-fischer-ai-marketing.de
-          </p>
-          <p>
-            <span className="font-semibold">Telefon:</span> 0049/176/21636276
-          </p>
-          <p>
-            <span className="font-semibold">Standort:</span> Karlsfeld, Deutschland
-          </p>
-          <p>
-            <span className="font-semibold">Website:</span> martin-fischer-ai-marketing.de/
-          </p>
-          <p className="md:col-span-2">
-            <span className="font-semibold">LinkedIn:</span> linkedin.com/in/martin-fischer-299b19116
-          </p>
-        </div>
-      </article>
-
       <section className="grid gap-6 lg:grid-cols-2">
         <article className="section-card space-y-4">
           <h2 className="text-2xl font-semibold">Fähigkeiten</h2>
@@ -364,6 +340,8 @@ export default function CvPage() {
         <p className="text-slate-700">Universität Bremen</p>
         <p className="text-sm text-slate-500">10/2004 – 08/2010 · Bremen</p>
       </article>
+
+      <DownloadGate />
     </section>
   );
 }
