@@ -53,11 +53,8 @@ function DownloadGate() {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [error, setError] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(() => {
-    if (typeof window === 'undefined') return false;
-
-    return window.localStorage.getItem('cvRequestSubmitted') === 'true';
-  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onChange = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -67,7 +64,7 @@ function DownloadGate() {
     if (error) setError('');
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const nextErrors = validate(values);
@@ -82,9 +79,29 @@ function DownloadGate() {
       return;
     }
 
-    window.localStorage.setItem('cvRequestSubmitted', 'true');
+    setIsSubmitting(true);
     setError('');
-    setIsSubmitted(true);
+
+    try {
+      const response = await fetch('/api/cv-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      const result = (await response.json().catch(() => ({}))) as { error?: string };
+
+      if (!response.ok) {
+        setError(result.error ?? 'Die Anfrage konnte nicht versendet werden. Bitte versuchen Sie es später erneut.');
+        return;
+      }
+
+      setIsSubmitted(true);
+    } catch {
+      setError('Die Anfrage konnte nicht versendet werden. Bitte prüfen Sie Ihre Verbindung und versuchen Sie es erneut.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -131,8 +148,8 @@ function DownloadGate() {
               Ich verwende Ihre Angaben ausschließlich zur Bearbeitung der Lebenslauf-Anfrage.
             </p>
 
-            <button type="submit" className="cta-primary">
-              Anfrage senden
+            <button type="submit" className="cta-primary disabled:cursor-not-allowed disabled:opacity-70" disabled={isSubmitting}>
+              {isSubmitting ? 'Anfrage wird gesendet …' : 'Anfrage senden'}
             </button>
           </form>
         ) : (
