@@ -33,7 +33,7 @@ export default function HomePage() {
           <div className="mx-auto flex h-full w-full max-w-[1400px] items-end px-5 pb-10 md:px-10 md:pb-16 lg:pb-20">
             <div className="max-w-[900px]">
               <h1 className="text-[clamp(1.85rem,4.1vw,3.5rem)] font-black leading-[1.08] text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.35)]">
-               Marketing-Teams entwickeln. Wachstum fördern. KI wirksam nutzen.
+               KI Transformation. Marketing-Teams weiterentwickeln
               </h1>
             </div>
           </div>
@@ -42,13 +42,12 @@ export default function HomePage() {
 
       <section className="mx-auto w-full max-w-content px-5 py-2 md:px-8 md:py-4">
         <p className="max-w-4xl text-base leading-relaxed text-slate-700 md:text-xl">
-          Ich führe Ihr Marketing Team durch die KI-Transformation und bringe es so auf ganz neues Level - situativ, empatisch und kollaborativ.
-          Als Senior leite ich fachlich fundiert und stets mit dem Ziel, messbare Erfolge vorzuweisen.
-          Mein innerer Antrieb: Lerne jeden Tag dazu und mache das Heute zu einem besseren Morgen.
+Ich gestalte KI-Transformation und führe Marketing-Teams. Als AI Transformation Manager entwickle ich Strukturen, Prozesse und Arbeitsweisen, mit denen Unternehmen KI strategisch, wirksam und nachhaltig in der Organisation verankern. Als Marketing Leader führe und entwickle ich Teams situativ, empathisch und kollaborativ – mit fachlicher Klarheit, messbaren Zielen und einem konsequenten Fokus auf Business Impact.
+Mein Antrieb: jeden Tag dazuzulernen und aus dem Heute ein besseres Morgen zu machen.
         </p>
 
         <p className="mt-5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-600 md:text-sm">
-          Marketing Lead · Head of Marketing · B2B Software · Logistik · Marketing Automation · AI Enablement
+          KI Transformation· Marketing Lead · Saas · Logistik · Marketing Automation
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3 md:gap-4">
