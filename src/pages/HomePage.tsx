@@ -47,7 +47,7 @@ Mein Antrieb: jeden Tag dazuzulernen und aus dem Heute ein besseres Morgen zu ma
         </p>
 
         <p className="mt-5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-600 md:text-sm">
-          Marketing Lead · Head of Marketing · B2B Software · Logistik · Marketing Automation · AI Enablement
+          KI Transformation· Marketing Lead · Saas · Logistik · Marketing Automation
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3 md:gap-4">
